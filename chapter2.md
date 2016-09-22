@@ -95,7 +95,7 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 
 <br/>
-#### Type Constructor
+#### Value Construcotor vs Type Constructor
 
 Functors transform a type to another type, so they are **typeclass** as well.
 
