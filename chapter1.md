@@ -56,10 +56,10 @@ In `Haskell`, the main category is `hask`, which treat `Haskell types` as object
 
 As we know that `(.)` is a associative function, so it must apply from right to left. 
 
-In `Haskell`, the `id` is **polymorphic** ** - it can take many different types for its domain and range, or, in category-speak, can have many different source and target objects.**
+In `Haskell`, the `id` is **polymorphic** ** - it can take many different types for its domain and range, or, in category-speak, can have many different source and target objects.** But morphisms in category theory are by definition **monomorphic** — **each morphism has one specific source object and one specific target object**.
 
-But morphisms in category theory are by definition **monomorphic** — **each morphism has one specific source object and one specific target object**.
+A polymorphic `Haskell` function can be made **monomorphic** by specifying its type for **source** and **target** object:
 
-A polymorphic `Haskell` function can be made **monomorphic** by specifying its type for source and target object:
+`(id :: B -> B) . f = f . (id :: A -> A) = f` 
 
-`(id :: B -> B) . f = f . (id :: A -> A) = f` and we denote the first `id` as `id(B)` and second as `id(A)` to make it **monomorphic**.
+We denote the first `id` as `id(B)` and second as `id(A)` to make it **monomorphic**.
