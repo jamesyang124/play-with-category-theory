@@ -14,7 +14,7 @@ Object describe an `algebraic data type`, it might be the same as the terms such
 <br>
 #### Morphisms
 
-Morphisms map a relation from one type to another type regardless whether the types are in same category.
+**Morphisms** maps a relation from one type to another type regardless whether the types are in the same category. The term **arrows** have as the same meaning as **morphisms**. We will use **morphism** through out the book.
 
 <br>
 #### Morphsim Composition
