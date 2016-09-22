@@ -52,5 +52,7 @@ The `id(B)` describe the `id` function accepts type `B` as an input and returns 
 
 In `Haskell`, the `id` is **polymorphic** because it accepts any `type` and reflect itself type as output.
 
+In `Haskell`, the main category is `hask`, which treat `Haskell types` as objects and `Haskell functions` as morphisms and uses `(.)` for composition:
 
+`id . f == f . id == f`
 
