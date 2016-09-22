@@ -45,4 +45,4 @@ So, we defined two parts:
 1. Something that takes object in `Hask` to object in another category `Maybe`.
 2. Something that takes morphisms in `Hask` to morphisms in another category `Maybe`.
 
-So `Maybe` should be a functor if the `Maybe` also obey functor axioms.
+So `Maybe` should be a functor if `Maybe` also obey functor axioms.
