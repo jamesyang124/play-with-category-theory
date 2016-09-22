@@ -60,4 +60,6 @@ In `Haskell`, the `id` is **polymorphic** ** - it can take many different type
 
 But morphisms in category theory are by definition **monomorphic** — **each morphism has one specific source object and one specific target object**.
 
-A polymorphic `Haskell` function can be made **monomorphic** by specifying its type.
+A polymorphic `Haskell` function can be made **monomorphic** by specifying its type:
+
+`(id :: B -> B) . f = f . (id :: A -> A) = f` and we denote the first `id` as `id(B)` and second as `id(A)` 
