@@ -9,7 +9,7 @@ Given categories `C` and `D`, a functor `F: C -> D` describe:
 1. Maps any object `A` in **C**, to `F(A)` in **D**.
 2. Maps morphisms `f: A -> B` in **C**, to `F(f): F(A) -> F(B)` in **D**.
 
-#### Functor Axioms
+#### Axioms
 
 Then there has two axioms that functors must obey:
 
