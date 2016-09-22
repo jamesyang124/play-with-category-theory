@@ -1,6 +1,6 @@
 # Category
 
-**Category theory** is a concept in terms of a collection of objects and morphisms. A category should have three basic components:
+A category should have three basic components:
 
 1. **objects** 
 2. **morphisms** 
