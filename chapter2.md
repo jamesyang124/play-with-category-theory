@@ -38,4 +38,4 @@ instance Functor Maybe where
   fmap _ Nothing = Nothing
 ```
 
-The **type constructor** `Maybe` takes any type `T` to a new type `Maybe T`.
+The **type constructor** and **Functor** - `Maybe` takes any type `T` to a new type `Maybe T`.
