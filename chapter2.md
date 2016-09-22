@@ -99,4 +99,4 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 We can think `typeclasses` as `trait`, `interface` which is extensible in `Scala` world.
 
-In `Haskell` internally, all functions are `curried`. It means it only takes one input source and return a **partial function**. When all inputs are supplied through, then it returns the target object finally.
+In `Haskell` internally, all functions are `curried`. It means it only takes one input source and return a **partial function**. When all inputs are supplied, then it returns the target object finally.
