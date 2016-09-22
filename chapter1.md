@@ -35,7 +35,7 @@ If a category holds above three components, then it should have the **category l
 1. The composition of morphisms is **associative**.
 
   > `(f . g) . h == f . (g . h)`
-2. The composition should be **closed**. It means the relationship from `f` to `g` as `f.g` which apply from **right to left**.
+2. The composition operation should be **closed**. It means the relationship from `f` to `g` as `f.g` which apply from **right to left**.
   
 
 
