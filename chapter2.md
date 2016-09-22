@@ -100,7 +100,7 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 In `Haskell`, type classes provide a structured way to control **ad-hoc polymorphism, or overloading**.
 
-**Functors transform a type to another type by `fmap`, so they are `typeclass` as well**:
+**`Functor` transform a type to another type by `fmap`, so it is a `typeclass` as well**:
 
 ```haskell
 class Functor (f :: * -> *) where
@@ -147,7 +147,7 @@ http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 1. We work in the category `Hask` and its subcategories.
 2. Objects are **types**.
 4. Morphisms are **functions**.
-5. Morphisms take a type and return another type are **type constructors**.
+5. A type that is an instance of type class are **type constructors**.
 6. Morphisms that return a value of that type are **value constructors**.
 7. Morphisms take a function and return another function are **higher-order functions**.
 8. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
