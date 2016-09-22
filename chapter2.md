@@ -23,4 +23,9 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 
 *** `[T] -> [U]` for types `T`, `U` ***
 
+In `Haskell`, functor definition:
 
+```haskell
+class Functor (f :: * -> *) where
+  fmap :: (a -> b) -> f a -> f b
+```
