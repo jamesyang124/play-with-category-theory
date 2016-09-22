@@ -96,3 +96,5 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 4. Morphisms that **take a type and return another typ are type constructors**.
 5. Morphisms take a function and return another function are **higher-order functions**.
 6. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
+
+We can think `typeclasses` as `trait`, `interface` which is extensible in `Scala` world.
