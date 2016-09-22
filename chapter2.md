@@ -101,7 +101,7 @@ Functors transform a type to another type, so they are **typeclass** as well.
 
 http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 
-In `Haskell` a data type is defind as:
+In `Haskell` a data type is defined by `data`:
 
 ```haskell
 # create another data type Bool
@@ -110,6 +110,13 @@ data Bool = False | True
 
 The parts after the `=` are value constructors. They specify the different values that this type can have. 
 
+Now consider `Int` type:
+
+```haskell
+data Int = -2147483648 | -2147483647 | ... | -1 | 0 | 1 | 2 | ... | 2147483647  
+```
+
+The **first** and **last** value constructors are the minimum and maximum possible values of `Int`.
 
 
 <br/>
