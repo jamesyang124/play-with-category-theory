@@ -22,3 +22,5 @@ Then there has two axioms that functors must obey:
 Now consider `Lst` subcategory in `Hask` category, it contains **only list types**. That is, `[T]` for any type of `T`, the morphisms in `Lst` are functions defined on list types:
 
 *** `[T] -> [U]` for types `T`, `U` ***
+
+
