@@ -118,6 +118,8 @@ data Int = -2147483648 | -2147483647 | ... | -1 | 0 | 1 | 2 | ... | 2147483647
 
 The **first** and **last** value constructors are the minimum and maximum possible values of `Int`.
 
+Value constructors are actually functions that **ultimately return a value of a data type**.
+
 
 <br/>
 #### Translating Categorical concepts into Haskell
