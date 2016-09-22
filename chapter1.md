@@ -8,14 +8,17 @@ A category should have three basic components:
 2. **morphisms** 
 3. **morphism composition**
 
+<br>
 #### Objects
 
 Object describe a `algebraic data type`, it might the same as the terms such as `shape`, or `context`.
 
+<br>
 #### Morphisms
 
 Morphisms map a relation from one type to another type regardless whether the types are in same category.
 
+<br>
 #### Morphsim Composition
 
 
@@ -39,7 +42,7 @@ It defines that: if `X` denote as `X1 x X2` and `f1`, `pi_1`, `f2`, and `pi_2` a
 
 https://en.wikipedia.org/wiki/Product_(category_theory)
 
-
+<br>
 #### Category Laws
 
 If a category holds above three components, then it should have the **category laws** as below:
@@ -60,6 +63,7 @@ The definition of `id` should be:
 
 The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output. 
 
+<br>
 #### Monomorphic vs Polymorphic
 
 In `Haskell`, the main category is `hask`, which treat `Haskell types` as objects and `Haskell functions` as morphisms and uses `(.)` for composition:
