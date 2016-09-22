@@ -58,3 +58,8 @@ fmap id Just(t) = Just(t)
 fmap id Nothing = Nothing
 ```
 
+Then review the composition:
+
+```haskell
+fmap (f . g) == fmap f . fmap g
+```
