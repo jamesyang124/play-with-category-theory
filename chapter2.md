@@ -54,7 +54,7 @@ Lets check the `id` function in `Maybe`:
 ```haskell
 fmap id == id
 
-fmap id Just(t) = Just(t)
+fmap id Just(t) = Just(id(t)) = Just(t)
 fmap id Nothing = Nothing
 ```
 
@@ -62,4 +62,15 @@ Then review the composition:
 
 ```haskell
 fmap (f . g) == fmap f . fmap g
+
+f :: x -> y
+g :: t -> x
+f . g :: t -> y 
+
+fmap (f . g) Just(t) 
+= fmap f . fmap g
+= fmap f . Just(g(t))
+= fmap f . Just(x)
+= Just(f(x))
+= Just(y)
 ```
