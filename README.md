@@ -7,4 +7,6 @@ This book is about the learning side notes of the category theory. The code exam
 
 **Category theory** is a concept in terms of a collection of objects and morphisms.
 
-To form a category, it should have two basic properties which are **objects** and **morphisms**. When we define a collection as a category, besides it must have obejcts and morphisms, the morphisms must have the composable property to form a composition `f . g` from morphism `f` and morphism `g`.
+To form a category, it should have two basic properties which are **objects** and **morphisms**. 
+
+To define a collection as a category, the morphisms must have the composable property to form a composition `f . g` from morphism `f` and morphism `g`. This is called a **binary operation**. The property intends to **closed** the relationship from `f -> g` as `f . g`
