@@ -37,11 +37,12 @@ class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
 
-***A functor is an instance of type class `Functor`. A functor is any type that defines how `fmap` applies to it.***
-
 `fmap` is the same as `(a -> b) -> (f a -> f b)` and can be read as: 
 
 > Take a function `f: a -> b` and returns another function `g: f a -> f b` which takes a functor `f a` then returns another functor `f b`. 
+
+***A functor is an instance of type class `Functor`.   
+A functor is any type that defines how `fmap` applies to it.***
 
 Definition of `Maybe` functor:
 
