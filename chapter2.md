@@ -37,6 +37,8 @@ class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
 
+`fmap` can read as take a function `a -> b` and returns a function which takes a functor `f a` then returns another functor `f b`. 
+
 And `Maybe` functor:
 
 ```haskell
