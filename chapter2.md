@@ -96,16 +96,15 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 <br>
 ####Typeclass
 
-> Type classes can be seen as providing a structured way to quantify over some smaller set of types.
-
 Typeclass is a constraint for a set of types and may have defined functions. Functors transform a type to another type by `fmap`, so they are **typeclass** as well.
 
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
 
-You can think about **typeclass** as `trait`, `class` in Object-Oriented world.
-You can think about **objects** as **type** in functional programming. 
+You can think about **typeclass** as `trait`, `class` in Object-Oriented world. And **objects** as **type** in functional programming. 
 
 Note that type variable `a` **is not capitalized which is not a type**, it is just a variable.
+
+> Type classes can be seen as providing a structured way to quantify over some smaller set of types.
 
 http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
 
