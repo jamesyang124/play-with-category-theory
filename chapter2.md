@@ -32,7 +32,7 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 
 In `Haskell`, functor definition:
 
-  ***A Functor is any data type that defines how `fmap` applies to it.***
+***A Functor is any data type that defines how `fmap` applies to it.***
 
 ```haskell
 class Functor (f :: * -> *) where
