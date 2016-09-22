@@ -29,3 +29,12 @@ In `Haskell`, functor definition:
 class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
+
+And `Maybe` functor:
+
+```haskell
+instance Functor Maybe where
+  fmap f Just(x) = Just(f x)
+  fmap _ Nothing = Nothing
+```
+
