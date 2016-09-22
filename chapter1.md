@@ -50,13 +50,13 @@ The definition of `id` should be:
 
 The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output. 
 
+#### Monomorphic vs Polymorphic
+
 In `Haskell`, the main category is `hask`, which treat `Haskell types` as objects and `Haskell functions` as morphisms and uses `(.)` for composition:
 
 `id . f == f . id == f`
 
 As we know that `(.)` is a associative function, so it must apply from right to left. 
-
-#### Monomorphic vs Polymorphic
 
 For `Haskell`, the `id` is **polymorphic** ** - it can take many different types for its domain and range, or, in category-speak, can have many different source and target objects.** But morphisms in category theory are by definition **monomorphic** — **each morphism has one specific source object and one specific target object**.
 
