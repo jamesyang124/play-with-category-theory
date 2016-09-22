@@ -1,4 +1,4 @@
 # Functor
 
-A `Functor` is actually **a type which relates categories together**. 
+A `Functor` is **a type which relates categories together**.  A functor is essentially a transformation between categories
 
