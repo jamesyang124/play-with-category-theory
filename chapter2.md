@@ -98,3 +98,5 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 6. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
 
 We can think `typeclasses` as `trait`, `interface` which is extensible in `Scala` world.
+
+In `Haskell` internally, all functions are `curried`. It means it only takes one input source and return a **partial function**. 
