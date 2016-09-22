@@ -32,7 +32,7 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 
 In `Haskell`, functor definition:
 
-***A `Functor` is any data type that defines how `fmap` applies to it.***
+***A `Functor` is any type that defines how `fmap` applies to it.***
 
 ```haskell
 class Functor (f :: * -> *) where
@@ -99,7 +99,7 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 `Functors` transform a type to another type, so they are **type constructors** as well.
 
-***A `type` that have `fmap` take a type and turn into another type are type constructors.***
+***A data type that have `fmap` take a type and turn into another type are type constructors.***
 
 
 <br/>
