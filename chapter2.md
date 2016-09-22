@@ -100,7 +100,12 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 In `Haskell`, type classes provide a structured way to control **ad-hoc polymorphism, or overloading**.
 
-**Functors transform a type to another type by `fmap`, so they are `typeclass` as well**.
+**Functors transform a type to another type by `fmap`, so they are `typeclass` as well**:
+
+```haskell
+class Functor (f :: * -> *) where
+  fmap :: (a -> b) -> f a -> f b
+```
 
 If a type is a part of a type class, that means that it supports and implements the behavior the type classes describes.
 
