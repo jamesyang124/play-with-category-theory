@@ -56,3 +56,4 @@ In `Haskell`, the main category is `hask`, which treat `Haskell types` as object
 
 `id . f == f . id == f`
 
+As we know that `(.)` is a associative function, so it must apply from right to left.
