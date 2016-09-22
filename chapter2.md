@@ -39,7 +39,7 @@ class Functor (f :: * -> *) where
 
 `fmap` can be translated as: 
 
-> Take a function `a -> b` and returns a function which takes a functor `f a` then returns another functor `f b`. 
+> Take a function `f: a -> b` and returns another function `g: f a -> f b` which takes a functor `f a` then returns another functor `f b`. 
 
 Definition of `Maybe` functor:
 
