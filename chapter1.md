@@ -21,7 +21,7 @@ Morphisms map a relation from one type to another type regardless whether the ty
 
 Morphisms must be composable such as a composition `f . g` is from the morphism `f` and `g`. This is also a **binary operation** of the **prodcut** in Category theory. 
 
-The composition intends to **closed** the relationship from `f -> g` as `f . g` which apply from **right to left**.
+The composition intends to **closed** the relationship from `f` to `g` as `f . g` which apply from **right to left**.
 
 We can denote that composition as:
 
