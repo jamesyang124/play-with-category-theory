@@ -14,4 +14,6 @@ Two categories are the same if they have:
 2. Same collection of arrows.
 3. Same associative method of composing any pair of arrows.
 
+Throughout the rest of this book, We are preferable to use **morphism** for the same meaning as the term **arrows**.
+
 With above introduction, let's get started to its definition in next chapter.
