@@ -42,6 +42,10 @@ If a category holds above three components, then it should have the **category l
 
 3. For that category `C`, it must have an identity function `id` which is `id: A -> A`. This `id` function also exist for all subcategories of category C.
 
+Regarding `id`, the definition should be:
+
+For every `g: A -> B` in Category `C`, `id(B) . g == g . id(A) == g`  
+
   
 
 
