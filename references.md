@@ -4,6 +4,9 @@
 
 https://en.wikipedia.org/wiki/Category_theory
 
+#### Product operation in Category theory
+
+https://en.wikipedia.org/wiki/Product_(category_theory)
 
 #### Category theory - Haskell wiki
 
