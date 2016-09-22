@@ -38,7 +38,7 @@ instance Functor Maybe where
   fmap _ Nothing = Nothing
 ```
 
-The **type constructor** and **Functor** - `Maybe` takes any type `T` to a new type `Maybe T`. Also `fmap` takes a function `a -> b` to a function `Maybe a -> Maybe b`. 
+The **type constructor** and **Functor** - `Maybe` takes any type `T` to a new type `Maybe T`. Also `fmap` takes a function `a -> b` to a function `Maybe a -> Maybe b`. `fmap` is also a morphism in `Maybe` category. 
 
 So, we defined two parts:
 
@@ -48,3 +48,7 @@ So, we defined two parts:
 So `Maybe` should be a functor if `Maybe` also obey functor axioms.
 
 `Haskell` functors is that **they represent types that can be mapped over**. So a function that does some mapping could be written using `fmap`.
+
+
+
+
