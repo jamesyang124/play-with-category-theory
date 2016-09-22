@@ -44,7 +44,7 @@ If a category holds above three components, then it should have the **category l
 
 The definition of `id` should be:
 
-*** For every `g: A -> B` in Category `C`, `id(B) . g == g . id(A) == g`. ***
+*** For every `g: A -> B` in category `C`, `id(B) . g == g . id(A) == g`. ***
 
 The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output. 
 
