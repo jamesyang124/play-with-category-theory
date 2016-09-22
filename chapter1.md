@@ -16,10 +16,10 @@ Object describe a `algebraic data type`, it might the same as the terms such as 
 
 Morphisms map a relation from one type to another type regardless whether the types are in same category.
 
-#### Morphsim composition
+#### Morphsim Composition
 
 
-Morphisms must be composable such as a composition `f . g` is composed from morphism `f` and `g`. This is also a **binary operation** of the **prodcut** in Category theory. 
+Morphisms must be composable such as a composition `f . g` is from the morphism `f` and `g`. This is also a **binary operation** of the **prodcut** in Category theory. 
 
 The composition intends to **closed** the relationship from `f -> g` as `f . g` which apply from **right to left**.
 
