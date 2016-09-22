@@ -8,10 +8,14 @@ A category should have three basic components:
 2. **morphisms** 
 3. **morphism composition**
 
+#### Objects
+
+Object describe a `type`, a data, or some `shape`, `context`.
+
 
 #### Morphisms
 
-It can be described as a function, map, arrow. 
+Morphisms map a relation from a `type` to another `type` regardless whether the type is in same category.
 
 #### Morphsim composition
 
