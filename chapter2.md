@@ -97,9 +97,16 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 <br/>
 #### Type Constructor
 
-Functors transform a type to another type, so they are **type constructors** as well.
+Functors transform a type to another type, so they are **typeclass** as well.
 
-***A data type that have `fmap` take a type and turn into another type are type constructors.***
+http://learnyouahaskell.com/making-our-own-types-and-typeclasses
+
+In `Haskell` a data type is defind as:
+
+```haskell
+# create another data type Bool
+data Bool = False | True
+```
 
 
 <br/>
@@ -108,6 +115,7 @@ Functors transform a type to another type, so they are **type constructors** as 
 1. We work in the category `Hask` and its subcategories.
 2. Objects are **types**.
 4. Morphisms are **functions**.
+5. Things take a type and return another type are **type constructors**.
 6. Morphisms take a function and return another function are **higher-order functions**.
 7. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
 
