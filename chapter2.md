@@ -37,7 +37,7 @@ class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
 
-`fmap` can be translated as: 
+`fmap` can be translated to `(a -> b) -> (f a -> f b)` and read as: 
 
 > Take a function `f: a -> b` and returns another function `g: f a -> f b` which takes a functor `f a` then returns another functor `f b`. 
 
