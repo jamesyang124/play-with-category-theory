@@ -35,10 +35,12 @@ If a category holds above three components, then it should have the **category l
 1. The composition of morphisms is **associative**.
 
   > `(f . g) . h == f . (g . h)`
+  
 2. The composition operation must be **closed**. 
 
   > It means if the relationship from `f` to `g` is applicable, then there **must have `f . g` which apply from right to left**. So we say that `f` and `g` is **closed** by `f . g`.
 
+3. For that category `C`, it must have an identity function `id` which is `id: A -> A`. This `id` function is all univesal wide for all objects in that category C.  
 
   
 
