@@ -102,6 +102,9 @@ Typeclass is a constraint for a set of types and may have defined functions. Fun
 
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
 
+You can think about **typeclass** as `trait`, `class` in Object-Oriented world.
+You can think abount **objects** as **type** in Haskell. 
+
 Note that type variable `a` **is not capitalized which is not a type**, it is just a variable.
 
 http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
