@@ -9,4 +9,4 @@ Given categories `C` and `D`, a functor `F: C -> D` describe:
 
 Then there has two axioms that functors must obey:
 
-1. 
+1. `F(id(A)) = id(F(A))`
