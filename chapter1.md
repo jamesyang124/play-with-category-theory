@@ -35,7 +35,7 @@ To learn more about off-topic **product**, the graph illustrate as:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/CategoricalProduct-03.svg/280px-CategoricalProduct-03.svg.png)
 
-It defines that: if `X` denote as `X1 x X2`, then `f1`, `pi_1`, `f2`, and `pi_2` are already learned, then it must have a morphism `f` to make `f1` composition closed the relation from `Y` to `X` then to `X1`.
+It defines that: if `X` denote as `X1 x X2` and `f1`, `pi_1`, `f2`, and `pi_2` are already learned, then it must exist a morphism `f` to make `f1` composition closed the relation from `Y` to `X` then to `X1`.
 
 
 #### Category Laws
