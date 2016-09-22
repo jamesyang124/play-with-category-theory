@@ -23,7 +23,7 @@ Morphisms must be composable such as a composition `f . g` is from the morphism 
 
 We can denote that composition as:
 
-`(f.g)(x) == f(g(x))`
+`(f . g)(x) == f(g(x))`
 
 It can also be visualized as:
 
