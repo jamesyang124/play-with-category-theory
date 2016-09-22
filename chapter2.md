@@ -104,7 +104,7 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 1. We work in the category `Hask` and its subcategories.
 2. Objects are **types**.
-3. Objects that **take a type and turn into another type are type constructors**.
+3. Objects that have `fmap` **take a type and turn into another type are type constructors**.
 4. Morphisms are **functions**.
 6. Morphisms take a function and return another function are **higher-order functions**.
 7. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
