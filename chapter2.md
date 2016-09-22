@@ -37,11 +37,11 @@ class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
 
-`fmap` can be read as: 
+`fmap` can be translated as: 
 
 > Take a function `a -> b` and returns a function which takes a functor `f a` then returns another functor `f b`. 
 
-And `Maybe` functor:
+Definition of `Maybe` functor:
 
 ```haskell
 instance Functor Maybe where
