@@ -30,6 +30,8 @@ It can also be visualized as:
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Commutative_diagram_for_morphism.svg/200px-Commutative_diagram_for_morphism.svg.png)
 
 
+#### Category Laws
+
 If a category holds above three components, then it should have the **category laws** as below:
 
 1. The composition of morphisms is **associative**.
@@ -40,7 +42,7 @@ If a category holds above three components, then it should have the **category l
 
   > It means if the relationship from `f` to `g` is applicable, then there **must have `f . g` which apply from right to left**. So we say that `f` and `g` is **closed** by `f . g`.
 
-3. For that category `C`, it must have an identity function `id` which is `id: A -> A`. This `id` function also exist for all subcategories of category C.
+3. For that category `C`, it must have an identity function `id` which is `id: A -> A`.
 
 The definition of `id` should be:
 
@@ -49,6 +51,6 @@ The definition of `id` should be:
 The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output. 
 
 In `Haskell`, the `id` is **polymorphic** because it accepts any `type` and reflect itself type as output.
-  
+
 
 
