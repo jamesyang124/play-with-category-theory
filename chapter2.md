@@ -93,13 +93,18 @@ fmap (f . g) Just(t) = fmap f . fmap g Just(t)
 
 Picturing the functor as a list or similar container, the right-hand side is a two-pass algorithm: we map over the structure, performing `g`, then `map` over it again, performing `f`. **The functor axioms guarantee we can transform this into a single-pass algorithm that performs `f . g`**. This is a process known as **fusion**.
 
-
-<br/>
-#### Value Construcotor vs Type Constructor
+<br>
+####Type Constructor
 
 Functors transform a type to another type, so they are **typeclass** as well.
 
-http://learnyouahaskell.com/making-our-own-types-and-typeclasses
+If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
+
+Resources:
+http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
+
+<br/>
+#### Value Construcotor
 
 In `Haskell` a data type is defined by `data`:
 
@@ -120,6 +125,8 @@ The **first** and **last** value constructors are the minimum and maximum possib
 
 Value constructors are actually functions that **ultimately return a value of a data type**.
 
+Resources:
+http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 
 
 
