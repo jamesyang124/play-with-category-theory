@@ -47,3 +47,4 @@ So, we defined two parts:
 
 So `Maybe` should be a functor if `Maybe` also obey functor axioms.
 
+`Haskell` functors is that **they represent types that can be mapped over**. So a function that does some mapping could be written using `fmap`.
