@@ -2,6 +2,7 @@
 
 A `Functor` is **a type which relates categories together**. A functor is essentially a transformation between categories. *** - Haskell Wikipedia ***
 
+<br/>
 #### Definition
 
 Given categories `C` and `D`, a functor `F: C -> D` describe:
@@ -9,6 +10,7 @@ Given categories `C` and `D`, a functor `F: C -> D` describe:
 1. Maps any object `A` in **C**, to `F(A)` in **D**.
 2. Maps morphisms `f: A -> B` in **C**, to `F(f): F(A) -> F(B)` in **D**.
 
+<br/>
 #### Axioms
 
 Then there has two axioms that functors must obey:
@@ -21,6 +23,7 @@ Then there has two axioms that functors must obey:
 
   > *** `F(f . g) == F(f) . F(g)` ***
 
+<br/>
 #### Example
 
 Now consider `Lst` subcategory in `Hask` category, it contains **only list types**. That is, `[T]` for any type of `T`, the morphisms in `Lst` are functions defined on list types:
@@ -79,6 +82,7 @@ fmap (f . g) Just(t) = fmap f . fmap g Just(t)
 = Just(y)
 ```
 
+<br/>
 #### Fusion
 
 Picturing the functor as a list or similar container, the right-hand side is a two-pass algorithm: we map over the structure, performing `g`, then `map` over it again, performing `f`. **The functor axioms guarantee we can transform this into a single-pass algorithm that performs `f . g`**. This is a process known as **fusion**.
