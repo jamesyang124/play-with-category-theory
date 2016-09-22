@@ -96,6 +96,8 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 <br>
 ####Typeclass
 
+Type classes can be seen as providing a structured way to quantify over some smaller set of types.
+
 Typeclass is a type that merge other types and may have defined functions. Functors transform a type to another type by `fmap`, so they are **typeclass** as well.
 
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
