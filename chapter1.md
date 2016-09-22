@@ -10,8 +10,6 @@ We can denote that composition as:
 
 `(f.g)(x) == f(g(x))`
 
-It can also be visualize as:
+It can also be visualized as:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Commutative_diagram_for_morphism.svg/200px-Commutative_diagram_for_morphism.svg.png)
-
-So When we talk about the 
