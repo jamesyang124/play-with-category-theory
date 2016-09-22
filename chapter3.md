@@ -3,9 +3,9 @@
 
 #### Why we need applicative functor?
 
-The functor only address a single input function. But what if we needs a multi-parameters function as the input of functor? Also, in `Haskell`, function are **curried** which means it only take a single input and return a partial function. The final result will be produced only when all input are curried.
+The functor only address a single input function `(f: a -> b)`. But what if we need a multi-parameters function as the input of functor? Also, in `Haskell`, functions are **curried** which means it only take a single input and return a partial function. The final result will be produced only when all input are curried.
 
-To address **multi-paramters** issue, **Applicative** typeclass defind as follow:
+To address **multi-paramters** issue, **Applicative** type class defined as follow:
 
 #### Definition
 
