@@ -98,6 +98,8 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 Functors transform a type to another type, so they are **typeclass** as well.
 
+Typeclass is a type that merge other types with other functions.
+
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
 
 http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
