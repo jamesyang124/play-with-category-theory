@@ -42,4 +42,5 @@ The **type constructor** and **Functor** - `Maybe` takes any type `T` to a new t
 
 So, we defined two parts:
 
-1. something that takes object in `Hask` to object in another category `Maybe`.
+1. Something that takes object in `Hask` to object in another category `Maybe`.
+2. Something that takes morphisms in `Hask` to morphisms in another category `Maybe`.
