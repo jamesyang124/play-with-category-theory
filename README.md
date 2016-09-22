@@ -1,12 +1,14 @@
 # Thinking Category Theory
 
-**Category theory** is a concept in terms of a collection of **objects** and **arrows**. It defines a category system which is very useful for the type system in functional programming.
+**Category theory** is a concept in terms of a collection of **objects** and **arrows**. It defines a category which is very useful for the type system in functional programming.
 
-A category is an **algebraic structure** that comprises "objects" that are linked by "arrows". 
+A category is an **algebraic structure** that comprises **objects** that are linked by **arrows**. 
 
-Two categories are the same if they have the same collection of objects, the same collection of arrows, and the same associative method of composing any pair of arrows.
+Two categories are the same if they have:
 
-This book is about any side notes of the category theory with the example from `Haskell`. It will cover some critical `Haskell` terms to help us understanding functional programming in advance.
+1. Same collection of objects. 
+2. Same collection of arrows
+3. same associative method of composing any pair of arrows.
 
-The code example will be either from `Haskell` or `Scala`.
+This book is the collection of side notes for the category theory with the example from `Haskell`. It will cover some critical `Haskell` terms to help us understanding the other concepts of functional programming in advance.
 
