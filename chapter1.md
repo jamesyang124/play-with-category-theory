@@ -10,7 +10,7 @@ A category should have three basic components:
 
 #### Objects
 
-Object describe a `type`, a data, or some `shape`, `context`.
+Object describe a `type`, a data, some `shape`, `context`.
 
 
 #### Morphisms
