@@ -1,3 +1,6 @@
-# My Awesome Book
+# Play with Category Theory
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+This book is about the learning side notes of the category theory. The code example will covered by `Haskell` or `Scala` but mainly on `Scala`.
+
+
+†
