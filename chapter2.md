@@ -108,6 +108,9 @@ In `Haskell` a data type is defind as:
 data Bool = False | True
 ```
 
+The parts after the `=` are value constructors. They specify the different values that this type can have. 
+
+
 
 <br/>
 #### Translating Categorical concepts into Haskell
