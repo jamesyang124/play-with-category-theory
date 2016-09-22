@@ -53,5 +53,8 @@ Lets check the `id` function in `Maybe`:
 
 ```haskell
 fmap id == id
+
+fmap id Just(t) = Just(t)
+fmap id Nothing = Nothing
 ```
 
