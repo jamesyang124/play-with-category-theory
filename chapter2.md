@@ -98,7 +98,7 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 2. Objects are **types**.
 3. Morphisms are **functions**.
 4. Morphisms that **take a type and return another typ are type constructors**.
-5. As we know functors transform a type to another type, so they are `type constructors` as well.
+5. Functors transform a type to another type, so they are `type constructors` as well.
 6. Morphisms take a function and return another function are **higher-order functions**.
 7. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
 
