@@ -97,8 +97,6 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 <br>
 ####Type Class
 
-***Think about `typeclass` as `trait`, `class` in `Scala`. And `object` as `type` in `Haskell`.*** 
-
 In `Haskell`, type classes provide a structured way to control **ad-hoc polymorphism, or overloading**.
 
 **`Functor` transform a type to another type by `fmap`, so it is a `typeclass` as well**:
@@ -115,6 +113,8 @@ Note that type variable `a` **is not capitalized which is not a type**, it is ju
 > Type classes can be seen as providing a structured way to quantify over some smaller set of types.
 
 http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
+
+***Think `type class` as `trait`, `interface` which is extensible in `Scala` world.***
 
 <br/>
 #### Value Construcotor
@@ -152,7 +152,5 @@ http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 6. Morphisms that return a value of that type are **value constructors**.
 7. Morphisms take a function and return another function are **higher-order functions**.
 8. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
-
-We can think `typeclasses` as `trait`, `interface` which is extensible in `Scala` world.
 
 In `Haskell` internally, all functions are `curried`. It means it only takes one input source and return a **partial function**. When all inputs are supplied, then it returns the target object finally.
