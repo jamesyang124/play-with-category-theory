@@ -1,4 +1,4 @@
-## What is Category?
+>## What is Category?
 
 **Category theory** is a concept in terms of a collection of objects and morphisms.
 
@@ -35,6 +35,8 @@ It can also be visualized as:
 If a category holds above three components, then it should have the **category laws** as below:
 
 1. The composition of morphisms is **associative**.
+
+  > `(f . g) . h == f . (g . h)`
 2.  
 
 
