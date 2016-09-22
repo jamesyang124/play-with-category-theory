@@ -2,14 +2,16 @@
 
 A `Functor` is **a type which relates categories together**. A functor is essentially a transformation between categories. *** - Haskell Wikipedia ***
 
+#### Definition
+
 Given categories `C` and `D`, a functor `F: C -> D` describe:
 
 1. Maps any object `A` in **C**, to `F(A)` in **D**.
 2. Maps morphisms `f: A -> B` in **C**, to `F(f): F(A) -> F(B)` in **D**.
 
+#### Functor Axioms
+
 Then there has two axioms that functors must obey:
-
-
 
 1. Given identity morphism `id(A)` on object `A`, `F(id(A))` must be the identity morphism on `F(A)`:
 
