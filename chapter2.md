@@ -98,11 +98,11 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 
 ***Think about `typeclass` as `trait`, `class` in `Scala`. And `object` as `type` in `Haskell`.*** 
 
-Type class is a constraint for a set of types and may have defined behaviors. **`Functors` transform a type to another type by `fmap`, so they are `typeclass` as well**.
+In `Haskell`, type classes provide a structured way to control **ad-hoc polymorphism, or overloading**.
+
+**`Functors` transform a type to another type by `fmap`, so they are `typeclass` as well**.
 
 If a type is a part of a type class, that means that it supports and implements the behavior the type classes describes.
-
-In `Haskell`, type classes provide a structured way to control **ad-hoc polymorphism, or overloading**.
 
 Note that type variable `a` **is not capitalized which is not a type**, it is just a variable.
 
