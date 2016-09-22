@@ -1,4 +1,4 @@
-## What is Category?
+# Category
 
 **Category theory** is a concept in terms of a collection of objects and morphisms.
 
