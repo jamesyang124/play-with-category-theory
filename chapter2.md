@@ -100,7 +100,6 @@ Functors transform a type to another type, so they are **typeclass** as well.
 
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
 
-Resources:
 http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
 
 <br/>
@@ -125,7 +124,6 @@ The **first** and **last** value constructors are the minimum and maximum possib
 
 Value constructors are actually functions that **ultimately return a value of a data type**.
 
-Resources:
 http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 
 
