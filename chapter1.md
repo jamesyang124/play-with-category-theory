@@ -46,7 +46,9 @@ The definition of `id` should be:
 
 *** For every `g: A -> B` in Category `C`, `id(B) . g == g . id(A) == g`. ***
 
-The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output.
+The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output. In `Haskell`, the `id` is **polymorphic** because it accepts any `type` and reflect itself type as output.
+
+
 
   
 
