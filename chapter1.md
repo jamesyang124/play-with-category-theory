@@ -50,10 +50,10 @@ The definition of `id` should be:
 
 The `id(B)` describe the `id` function accepts type `B` as an input and returns same type `B` as output. 
 
-In `Haskell`, the `id` is **polymorphic** because it accepts any `type` and reflect itself type as output.
-
 In `Haskell`, the main category is `hask`, which treat `Haskell types` as objects and `Haskell functions` as morphisms and uses `(.)` for composition:
 
 `id . f == f . id == f`
 
-As we know that `(.)` is a associative function, so it must apply from right to left.
+As we know that `(.)` is a associative function, so it must apply from right to left. In `Haskell`, the `id` is **polymorphic** because it accepts any `type` and reflect itself type as output. 
+
+But morphisms in category theory are by definition **monomorphic** — **each morphism has one specific source object and one specific target object**.
