@@ -30,14 +30,14 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 
 *** `[T] -> [U]` for types `T`, `U` ***
 
-In `Haskell`, functor definition:
-
-***A functor instance is any type that defines how `fmap` applies to it.***
+In `Haskell`, `Functor` type class definition:
 
 ```haskell
 class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
+
+***A functor instance is any type that defines how `fmap` applies to it.***
 
 `fmap` is the same as `(a -> b) -> (f a -> f b)` and can be read as: 
 
