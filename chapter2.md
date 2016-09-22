@@ -37,7 +37,7 @@ class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
 
-***A functor instance is any type that defines how `fmap` applies to it.***
+***A functor is an instance of type class `Functor`. A functor is any type that defines how `fmap` applies to it.***
 
 `fmap` is the same as `(a -> b) -> (f a -> f b)` and can be read as: 
 
