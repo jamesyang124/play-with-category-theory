@@ -67,10 +67,12 @@ f :: x -> y
 g :: t -> x
 f . g :: t -> y 
 
-fmap (f . g) Just(t) 
-= fmap f . fmap g
+# apply Just(t) from right to left
+fmap (f . g) Just(t) = fmap f . fmap g Just(t)
 = fmap f . Just(g(t))
 = fmap f . Just(x)
 = Just(f(x))
 = Just(y)
 ```
+
+Picturing the functor as a list or similar container, the right-hand side is a two-pass algorithm: we map over the structure, performing `g`, then `map` over it again, performing `f`. **The functor axioms guarantee we can transform this into a single-pass algorithm that performs `f . g`. This is a process known as fusion**.
