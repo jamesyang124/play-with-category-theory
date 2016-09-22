@@ -91,6 +91,8 @@ fmap (f . g) Just(t) = fmap f . fmap g Just(t)
 
 Picturing the functor as a list or similar container, the right-hand side is a two-pass algorithm: we map over the structure, performing `g`, then `map` over it again, performing `f`. **The functor axioms guarantee we can transform this into a single-pass algorithm that performs `f . g`**. This is a process known as **fusion**.
 
+
+<br/>
 #### Type Constructor
 
 `Functors` transform a type to another type, so they are `type constructors` as well.
