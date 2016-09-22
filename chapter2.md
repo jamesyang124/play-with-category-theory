@@ -94,13 +94,13 @@ fmap (f . g) Just(t) = fmap f . fmap g Just(t)
 Picturing the functor as a list or similar container, the right-hand side is a two-pass algorithm: we map over the structure, performing `g`, then `map` over it again, performing `f`. **The functor axioms guarantee we can transform this into a single-pass algorithm that performs `f . g`**. This is a process known as **fusion**.
 
 <br>
-####Typeclasses
+####Type Class
 
-You can think about **typeclass** as `trait`, `class` in `Scala`. And **objects** as **type** in `Haskell`. 
+***Think about `typeclass` as `trait`, `class` in `Scala`. And `object` as `type` in `Haskell`.*** 
 
-Typeclass is a constraint for a set of types and may have defined functions. Functors transform a type to another type by `fmap`, so they are **typeclass** as well.
+Type class is a constraint for a set of types and may have defined behaviors. **`Functors` transform a type to another type by `fmap`, so they are `typeclass` as well**.
 
-If a type is a part of a typeclass, that means that it supports and implements the behavior the type classes describes.
+If a type is a part of a type class, that means that it supports and implements the behavior the type classes describes.
 
 In `Haskell`, type classes provide a structured way to control **ad-hoc polymorphism, or overloading**.
 
