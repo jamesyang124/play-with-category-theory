@@ -10,8 +10,7 @@ A category should have three basic components:
 
 #### Objects
 
-Object describe a `type`, data, `shape`, or `context`.
-
+Object describe a `algebraic data type`, it might the same as the terms such as `shape`, or `context`.
 
 #### Morphisms
 
