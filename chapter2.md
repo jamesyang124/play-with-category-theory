@@ -86,3 +86,13 @@ fmap (f . g) Just(t) = fmap f . fmap g Just(t)
 #### Fusion
 
 Picturing the functor as a list or similar container, the right-hand side is a two-pass algorithm: we map over the structure, performing `g`, then `map` over it again, performing `f`. **The functor axioms guarantee we can transform this into a single-pass algorithm that performs `f . g`**. This is a process known as **fusion**.
+
+
+#### Translating Categorical concepts into Haskell
+
+1. We work in the category `Hask` and its subcategories.
+2. Objects are **types**.
+3. Morphisms are **functions**.
+4. Things that take a type and return another type are type constructors.
+5. Things that take a function and return another function are higher-order functions.
+6. Typeclasses, along with the polymorphism they provide, make a nice way of capturing the factthat in category theory things are often defined over a number of objects at once.
