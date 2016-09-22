@@ -37,7 +37,7 @@ If a category holds above three components, then it should have the **category l
   > `(f . g) . h == f . (g . h)`
 2. The composition operation must be **closed**. 
 
-  > It means the relationship from `f` to `g` must have `f.g` which apply from **right to left**.
+  > It means if the relationship from `f` to `g` is applicable, then there **must have `f.g` which apply from right to left**.
   
 
 
