@@ -31,6 +31,12 @@ It can also be visualized as:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Commutative_diagram_for_morphism.svg/200px-Commutative_diagram_for_morphism.svg.png)
 
+To learn more about off-topic **product**, the graph illustrate as:
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/CategoricalProduct-03.svg/280px-CategoricalProduct-03.svg.png)
+
+It defines that: if `X` denote as `X1 x X2`, then `f1`, `pi_1`, `f2`, and `pi_2` are already learned, then it must have a morphism `f` to **closed** the relation.
+
 
 #### Category Laws
 
