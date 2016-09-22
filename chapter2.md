@@ -121,13 +121,15 @@ The **first** and **last** value constructors are the minimum and maximum possib
 Value constructors are actually functions that **ultimately return a value of a data type**.
 
 
+
+
 <br/>
 #### Translating Categorical concepts into Haskell
 
 1. We work in the category `Hask` and its subcategories.
 2. Objects are **types**.
 4. Morphisms are **functions**.
-5. Things take a type and return another type are **type constructors**.
+5. Morphisms take a type and return another type are **type constructors**.
 6. Morphisms take a function and return another function are **higher-order functions**.
 7. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
 
