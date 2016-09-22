@@ -97,7 +97,7 @@ Picturing the functor as a list or similar container, the right-hand side is a t
 <br/>
 #### Type Constructor
 
-`Functors` transform a type to another type, so they are **type constructors** as well.
+Functors transform a type to another type, so they are **type constructors** as well.
 
 ***A data type that have `fmap` take a type and turn into another type are type constructors.***
 
