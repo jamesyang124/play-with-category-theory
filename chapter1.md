@@ -23,7 +23,7 @@ Morphisms must be composable such as a composition `f . g` is from the morphism 
 
 It defines that, if there has a morphism `f: A -> B` and there has another morphism `g` which takes `f`'s output object `B` as input and denote as `g: B -> C`, then they must be **closed** by a composition `f . g`.
 
-We can descrobe that composition as:
+We can describe that composition as:
 
 `(f . g)(x) == f(g(x))`
 
