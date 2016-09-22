@@ -62,4 +62,4 @@ But morphisms in category theory are by definition **monomorphic** — **eac
 
 A polymorphic `Haskell` function can be made **monomorphic** by specifying its type:
 
-`(id :: B -> B) . f = f . (id :: A -> A) = f` and we denote the first `id` as `id(B)` and second as `id(A)` to make it monomorphic.
+`(id :: B -> B) . f = f . (id :: A -> A) = f` and we denote the first `id` as `id(B)` and second as `id(A)` to make it **monomorphic**.
