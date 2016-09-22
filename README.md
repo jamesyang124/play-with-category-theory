@@ -7,4 +7,5 @@ This book is about the learning side notes of the category theory. The code exam
 
 **Category theory** is a concept in terms of a collection of objects and morphisms.
 
-A category has two basic properties which are **objects** and **morphisms**.
+T form a category, it should have two basic properties which are **objects** and **morphisms**.
+
