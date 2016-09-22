@@ -100,6 +100,8 @@ Typeclass is a type that merge other types and may have defined functions. Funct
 
 If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.
 
+Note that type variable `a` **is not capitalized which is not a type**, it is just a variable.
+
 http://learnyouahaskell.com/types-and-typeclasses#typeclasses-101
 
 <br/>
@@ -135,8 +137,9 @@ http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 2. Objects are **types**.
 4. Morphisms are **functions**.
 5. Morphisms take a type and return another type are **type constructors**.
-6. Morphisms take a function and return another function are **higher-order functions**.
-7. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
+6. Morphisms take a type and return a value of that type are **value constructors**.
+7. Morphisms take a function and return another function are **higher-order functions**.
+8. **Typeclasses**, along with the polymorphism they provide, make a nice way of capturing the fact that in category theory **things are often defined over a number of objects at once**.
 
 We can think `typeclasses` as `trait`, `interface` which is extensible in `Scala` world.
 
