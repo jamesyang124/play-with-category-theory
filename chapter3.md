@@ -1,6 +1,27 @@
 # Applicative Functor
 
 
+#### Type Signature
+
+A type signature in `Haskell` represents the behavior of the morphism, consider `readFile` function's type signature:
+
+```haskell
+readFile :: FilePath -> IO String
+```
+
+It means it take a `FilePath` type then return a `IO String` type.
+
+We can also find that fat arrow `=>`. Everything before the `=>` symbol is called a class constraint:
+
+```haskell
+sort :: Ord a => [a] -> [a]
+```
+
+In here, `Ord a => [a] -> [a]`, which basically says **given a type `a` for which ordering is defined, then we can sort a list of such `a`s to provide another list of the same element type**.
+
+
+Let us recap that that if two morphisms
+
 #### Definition
 
 ```haskell
