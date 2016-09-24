@@ -81,3 +81,18 @@ instance Applicative Maybe where
 
 The `(Just f) <*> something = fmap f something` obey the definition as it takes a functor which have a function and another functor in left side of `=`, then map them over to another functor at the right side of `=`.
 
+We observe that `(Just f)` could be rewritten as `pure f`, then above `applicative` definition can supply a law as:
+
+```haskell
+pure f <*> something = fmap f something
+```
+
+It could be translated as: 
+
+> when we take a function `f` with another functor `something` as input for `<*>`, then the output is equivalent to `fmap f something`.
+
+Now, if `f` is a multi-paramter function, we could generally yield the result from `pure f <*> x <*> y ...` because `<*>` is **left associative**.
+
+
+
+
