@@ -91,8 +91,19 @@ It could be translated as:
 
 > when we take a function `f` with another functor `something` as input for `<*>`, then the output is equivalent to `fmap f something`.
 
-Now, if `f` is a multi-paramter function, we could generally yield the result from `pure f <*> x <*> y ...` because `<*>` is **left associative**.
+Now, if `f` is a multi-paramter function, we could gracefully yield the result from `pure f <*> x <*> y ...` because `<*>` is **left associative**.
 
+In `haskell` it also export a function `<$>` to reduce redundant code:
+
+```haskell
+(<$>) :: (Functor f) => (a -> b) -> f a -> f b
+# f <$> x = pure f <*> x = fmap f something
+f <$> x = fmap f something
+
+(++) <$> Just "johntra" <*> Just "volta"
+```
+
+Now we basically solve multi-paramter function issue. We don't have to handly do the pattern match over and over again to unboxing the context and apply with the value.
 
 
 
