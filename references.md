@@ -24,6 +24,10 @@ http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.h
 
 http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 
+#### Monoid
+
+https://wiki.haskell.org/Monoid
+
 #### Group-liked structure
 
 https://en.wikipedia.org/wiki/Category_(mathematics)
