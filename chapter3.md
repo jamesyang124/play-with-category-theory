@@ -113,5 +113,3 @@ liftA2 f a b = f <$> a <*> b
 ```
 
 Applicative functors are more powerful than just ordinary functors. With ordinary functors, we can just map functions over **one functor**. But with applicative functors, **we can apply a function between several functors**.
-
-
