@@ -49,11 +49,13 @@ foldr (*) 1 [1,2,3]
 And `foldMap`:
 
 ```haskell
+foldMap :: (Monoid m, Foldable t) => (a -> m) -> t a -> m 
+
+data Tree a = Empty | Node a (Tree a) (Tree a) deriving (Show, Read, Eq)
+
 instance F.Foldable Tree where  
     foldMap f Empty = mempty  
     foldMap f (Node x l r) = F.foldMap f l `mappend`  
                              f x           `mappend`  
-                             F.foldMap f r 
-
-foldMap :: (Monoid m, Foldable t) => (a -> m) -> t a -> m 
+                             F.foldMap f r
 ```
