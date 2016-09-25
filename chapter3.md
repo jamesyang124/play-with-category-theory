@@ -105,5 +105,13 @@ f <$> x = fmap f something
 
 Now we basically solve multi-paramter function issue. We don't have to handly do the pattern match over and over again to unboxing the context and apply with the value.
 
+`Control.Applicative` defines a function that's called `liftA2`. It's defined like this:
+
+```haskell
+liftA2 :: (Applicative f) => (a -> b -> c) -> f a -> f b -> f c  
+liftA2 f a b = f <$> a <*> b 
+```
+
+Applicative functors are more powerful than just ordinary functors. With ordinary functors, we can just map functions over **one functor**. But with applicative functors, **we can apply a function between several functors**.
 
 
