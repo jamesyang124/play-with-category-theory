@@ -28,6 +28,10 @@ http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 
 https://wiki.haskell.org/Monoid
 
+#### Arrow function
+
+https://en.wikibooks.org/wiki/Haskell/Understanding_arrows
+
 #### Group-liked structure
 
 https://en.wikipedia.org/wiki/Category_(mathematics)
