@@ -1,6 +1,8 @@
 # Monoid
 
 
+https://wiki.haskell.org/Monoid
+
 A monoid is when you have **an associative binary function and a value which acts as an identity with respect to that function**. 
 
 When something acts as an identity with respect to a function, it means that when called with that function and **some other value, the result is always equal to that other value**. 
@@ -52,4 +54,6 @@ instance F.Foldable Tree where
     foldMap f (Node x l r) = F.foldMap f l `mappend`  
                              f x           `mappend`  
                              F.foldMap f r 
+
+foldMap :: (Monoid m, Foldable t) => (a -> m) -> t a -> m 
 ```
