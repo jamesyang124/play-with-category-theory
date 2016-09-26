@@ -5,6 +5,6 @@
 * [Second Chapter](chapter2.md)
 * [Third Chapter](chapter3.md)
 * [Forth Chapter](chapter4.md)
-* [References](references.md)
 * [Fifth Chapter](chapter5.md)
+* [References](references.md)
 
