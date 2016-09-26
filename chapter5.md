@@ -20,6 +20,16 @@ applyMaybe (Just x) f = f x
 <br>
 ####Definition
 
+In mathematical way, we will using scala-like synatx to define a Monad as:
+
+```scala
+def unit[M <: Monad](x: Any) = M[x]
+def join[M <: Monad](mx: M[M[x]]) = M[x]
+```
+
+It means it must have two functions, one is the unit function which very similar to `pure` function in functor. Another `join` function transform a double-wrapped context value `M(M(x))` to one shape `M(x)` instead.
+
+
 `Monad` type class definition:
 
 ```hasekll
