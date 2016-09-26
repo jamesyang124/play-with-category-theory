@@ -16,3 +16,20 @@ applyMaybe :: Maybe a -> (a -> Maybe b) -> Maybe b
 applyMaybe Nothing f  = Nothing  
 applyMaybe (Just x) f = f x  
 ```
+
+####definition
+
+`Monad` type class definition:
+
+```hasekll
+class Monad m where  
+    return :: a -> m a  
+  
+    (>>=) :: m a -> (a -> m b) -> m b  
+  
+    (>>) :: m a -> m b -> m b  
+    x >> y = x >>= \_ -> y  
+  
+    fail :: String -> m a  
+    fail msg = error msg  
+```
