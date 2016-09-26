@@ -51,6 +51,8 @@ We can found that `join (fmap f x)` is very similar as `map` then `flatten` in S
 
 The first function that the `Monad` type class defines is `return`. It's the same as `pure`. We use **bind** (`>>=`) to replace actual `join` implementation, `Monad` type class definition:
 
+The `bind` is actually as a `map` then `flatten` operation as `flatMap` in Scala.
+
 ```hasekll
 class Monad m where  
     return :: a -> m a  
