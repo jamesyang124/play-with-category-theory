@@ -4,7 +4,7 @@
 * [First Chapter](chapter1.md)
 * [Second Chapter](chapter2.md)
 * [Third Chapter](chapter3.md)
-* [References](references.md)
 * [Forth Chapter](chapter4.md)
+* [References](references.md)
 * [Fifth Chapter](chapter5.md)
 
