@@ -30,7 +30,7 @@ def unit: a => M(a)
 def join: M(M(x)) => M(x)
 ```
 
-It means it must have two functions, one is the unit function which is very similar to `pure` function in functor. Another `join` function transform a double-wrapped value `M(M(x))` to `M(x)` instead.
+It means it must have two functions, one is the unit function which is very similar to `pure` function in functor. Another `join` function transform a double-wrapped value `M(M(x))` to `M(x)`, **which flatten inner `M`context**.
 
 ```haskell
 return :: a -> m a
@@ -74,6 +74,8 @@ By above definition, a monad holds these **categorical laws**:
 <br>
 #### First law
 
+The left-hand side will **flatten the inner two layers into a new layer**, then flatten this with the outermost layer. The right-hand side will **flatten the outer two layers, then flatten this with the innermost layer**. 
+
 Translate `M(join)` as `fmap join`:
 
 ```haskell
@@ -86,7 +88,13 @@ join (join [[[x]]]) = join [[x]] = [x]
 # join: [[x]] -> [b]
 # fmap: (a -> b) -> f(a) -> f(b)
 # fmap: ([[x]] -> [b]) -> [[[x]]] -> [[b]]
-join fmap join [[[x]]] = join [[x]] = [x]
+join fmap join [[[x1, x2], []], [[y1, y2], []]] 
+= join [[x1, x2], [y1, y2]] 
+= [x1, x2, y1, y2]
+
+# famp join
+fmap (\x -> x >>= id)  [[[1,2,3],[],[4]],[[5,6],[7]],[[8],[9]]]
+[[1,2,3,4],[5,6,7],[8,9]]
 
 # take Maybe as example
 return :: a -> Maybe a
@@ -97,6 +105,40 @@ join Nothing         = Nothing
 join (Just Nothing)  = Nothing
 join (Just (Just x)) = Just x
 ```
+
+![](https://upload.wikimedia.org/wikibooks/en/2/2f/Monad-law-1-lists.png)
+
+
+Maybe is also a `monad`, with
+
+```haskell
+return :: a -> Maybe a
+return x = Just x
+
+join :: Maybe (Maybe a) -> Maybe a
+join Nothing         = Nothing
+join (Just Nothing)  = Nothing
+join (Just (Just x)) = Just x
+```
+
+So if we had a **three-layered** `Maybe` (i.e., **it could be `Nothing`, `Just Nothing`, `Just (Just Nothing)` or `Just (Just (Just x))`**). The first law says that collapsing the inner two layers first, then that with the outer layer is exactly the same as collapsing the outer layers first, then that with the innermost layer.
+
+Scala Example:
+
+```scala
+// fmap join
+List(List(List(1), List(2), List(3, 4, 6), List(), List(4), List()), List(List(5), List())).map(_.flatten)
+// res41: List[List[Int]] = List(List(1, 2, 3, 4, 6, 4), List(5))
+
+// join
+List(List(List(1), List(2), List(3, 4, 6), List(), List(4), List()), List(List(5), List())).flatten
+// res39: List[List[Int]] = List(List(1), List(2), List(3, 4, 6), List(), List(4), List(), List(5), List())
+
+// flatten as Haskell join, unwrap from inner context first
+List(1, 2).flatten
+// <console>:12: error: No implicit view available from Int => scala.collection.GenTraversableOnce[B].
+```
+
 
 <br>
 #### Second Law
