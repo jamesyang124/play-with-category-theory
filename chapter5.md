@@ -41,7 +41,9 @@ join x = x >>= id
 x >>= f = join (fmap f x)
 ```
 
-In haskell, we use **bind** (`>>=`) to replace actual `join` implementation, `Monad` type class definition:
+We can found that `join (fmap f x)` is very similar as `map` then `flatten` in Scala as `flatmap` function.
+
+The first function that the `Monad` type class defines is `return`. It's the same as `pure`. We use **bind** (`>>=`) to replace actual `join` implementation, `Monad` type class definition:
 
 ```hasekll
 class Monad m where  
