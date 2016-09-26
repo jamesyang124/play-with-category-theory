@@ -17,7 +17,8 @@ applyMaybe Nothing f  = Nothing
 applyMaybe (Just x) f = f x  
 ```
 
-####definition
+<br>
+####Definition
 
 `Monad` type class definition:
 
