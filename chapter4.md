@@ -34,6 +34,13 @@ instance Monoid [a] where
     
 mconcat [[1,2],[3,6],[9]]  
 [1,2,3,6,9]
+
+# similar as: join fmap join
+fmap mconcat [[[1,2],[],[4,7]],[[3,4]],[]]
+[[1,2,4,7],[3,4],[]]
+
+mconcat [[[1,2],[],[4,7]],[[3,4]],[]]
+[[1,2],[],[4,7],[3,4]]
 ```
 
 Others such as `Product`, `Sum`, `Maybe`. Let's check out `foldr` for `mconcat`: 
