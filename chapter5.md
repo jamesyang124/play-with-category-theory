@@ -87,7 +87,7 @@ join (join [[[x]]]) = join [[x]] = [x]
 # left hand side
 # join: [[x]] -> [b]
 # fmap: (a -> b) -> f(a) -> f(b)
-# fmap: ([[x]] -> [b]) -> [[[x]]] -> [[b]]
+# fmap: (join: [[x]] -> [b]) -> [[[x]]] -> [[b]]
 join fmap join [[[x1, x2], []], [[y1, y2], []]] 
 = join [[x1, x2], [y1, y2]] 
 = [x1, x2, y1, y2]
@@ -95,15 +95,6 @@ join fmap join [[[x1, x2], []], [[y1, y2], []]]
 # famp join
 fmap (\x -> x >>= id)  [[[1,2,3],[],[4]],[[5,6],[7]],[[8],[9]]]
 [[1,2,3,4],[5,6,7],[8,9]]
-
-# take Maybe as example
-return :: a -> Maybe a
-return x = Just x
-
-join :: Maybe (Maybe a) -> Maybe a
-join Nothing         = Nothing
-join (Just Nothing)  = Nothing
-join (Just (Just x)) = Just x
 ```
 
 ![](https://upload.wikimedia.org/wikibooks/en/2/2f/Monad-law-1-lists.png)
@@ -160,6 +151,9 @@ return . f = fmap f return
 return . f x = M(f(x))
 # right side
 fmap f (return x) = M(f(x))
+
+# rethink about it
+\x -> return (f x) = \x -> fmap f (return x)
 ```
 
 <br>
@@ -173,6 +167,10 @@ join . fmap (fmap f) = fmap f . join
 join . fmap (fmap f) x = join M(M(f(x))) = M(f(x))
 # right side
 fmap f . join M(M(x)) = fmap f . M(x) = M(f(x)) 
+
+
+# rethink about it
+\x -> join (fmap (fmap f) x) = \x -> fmap f (join x)
 ```
 
 <br>
