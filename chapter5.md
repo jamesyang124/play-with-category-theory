@@ -20,17 +20,28 @@ applyMaybe (Just x) f = f x
 <br>
 ####Definition
 
-In mathematical way, we will using scala-like synatx to define a Monad as:
+A monad is a functor `M : C -> C`, along with two morphisms for every object `X` in `C`:
+
+In mathematical way, we use Scala-liked synatx to define a Monad as:
 
 ```scala
-def unit[M <: Monad](x: Any) = M[x]
-def join[M <: Monad](mx: M[M[x]]) = M[x]
+// M is a monad
+def unit: a => M(a)
+def join: M(M(x)) => M(x)
 ```
 
-It means it must have two functions, one is the unit function which very similar to `pure` function in functor. Another `join` function transform a double-wrapped context value `M(M(x))` to one shape `M(x)` instead.
+It means it must have two functions, one is the unit function which is very similar to `pure` function in functor. Another `join` function transform a double-wrapped value `M(M(x))` to `M(x)` instead.
 
+```haskell
+return :: a -> m a
+join :: Monad m => m (m a) -> m a
+join x = x >>= id
 
-`Monad` type class definition:
+(>>=) :: Monad m => m a -> (a -> m b) -> m b
+x >>= f = join (fmap f x)
+```
+
+In haskell, we use **bind** (`>>=`) to replace actual `join` implementation, `Monad` type class definition:
 
 ```hasekll
 class Monad m where  
