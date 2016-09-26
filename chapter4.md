@@ -17,7 +17,7 @@ class Monoid m where
     mconcat = foldr mappend mempty 
 ```
 
-Clearly we can a monoid should have following properties:
+Clearly we can have a monoid should have following properties:
 
 ```haskell
 mempty `mappend` x = x
