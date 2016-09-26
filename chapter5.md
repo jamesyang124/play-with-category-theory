@@ -195,7 +195,8 @@ m >>= (\x -> f x >>= g)
 = (join . fmap g . join) (fmap f m)
 = (join . join . fmap (fmap g)) (fmap f m)         -- By law 4
 = (join . join . fmap (fmap g) . fmap f) m
-= (join . join . fmap (fmap g . f)) m              -- By the distributive law of functors F(f.g) = F(f) . F(g)
+= (join . join . fmap (fmap g . f)) m              -- By the distributive law of functors
+                                                   -- F(f . g) = F(f) . F(g)
 = (join . join . fmap (\x -> fmap g (f x))) m
 = (join . fmap join . fmap (\x -> fmap g (f x))) m -- By law 1
 = (join . fmap (join . (\x -> fmap g (f x)))) m    -- By the distributive law of functors
