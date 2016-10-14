@@ -19,6 +19,7 @@ Also, identity function support a functor to be an endofunctor.
 
 A forgetful functor (also known as a **stripping functor**) **forgets** or drops some or all of the input's structure or properties **before** mapping to the output. 
 
+Forgetful functors tend to have **left adjoints**, which are **free constructions**.
 
 #### Natural transformation
 
