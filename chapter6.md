@@ -1,4 +1,4 @@
-# Free Monoids
+# Terms
 
 #### Endofunctor
 
@@ -98,3 +98,4 @@ for every pair $$x, y ∈ Ob(C)$$, a set $$Hom_C(x, y) ∈ Set$$. It is called t
 
 A specified morphism denoted $$id_x ∈  Hom_x ∈ (x,x)$$, called the **identity morphism** on `x`.
 
+we even used the current notation, referring to the set of functions `X -> Y` as $$Hom_{Set}(X, Y)$$.
