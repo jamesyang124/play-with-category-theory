@@ -32,9 +32,9 @@ https://wiki.haskell.org/Monoid
 
 https://en.wikibooks.org/wiki/Haskell/Understanding_arrows
 
-#### Basic Category Theory from MIT course
+#### Category Theory for Scientists from MIT course
 
-https://ocw.mit.edu/courses/mathematics/18-s996-category-theory-for-scientists-spring-2013/textbook/MIT18_S996S13_chapter4.pdf
+https://ocw.mit.edu/courses/mathematics/18-s996-category-theory-for-scientists-spring-2013/textbook/MIT18_S996S13_textbook.pdf
 
 #### Group-liked structure
 
