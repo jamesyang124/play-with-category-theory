@@ -50,4 +50,14 @@ and a family of bijections
 
 $$\mathrm {hom} _{\mathcal {C}}(FY,X)\cong \mathrm {hom} _{\mathcal {D}}(Y,GX)$$
 
+```sh
+given `X` as input to `F` output Y  
+given `y` as input to `G` output x
+```
+
 which is **natural** for all variables `X` in `C` and `Y` in `D`.
+
+`F` is called a **left adjoint functor**, while `G` is called a **right adjoint functor**. The relationship **F is left adjoint to G (or equivalently, G is right adjoint to F**) is sometimes written:
+
+$$F\dashv G$$
+
