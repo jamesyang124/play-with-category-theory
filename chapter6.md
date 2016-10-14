@@ -15,6 +15,11 @@ join :: Monad m => m (m a) -> m a
 
 Also, identity function support a functor to be an endofunctor.
 
+#### Forgetful functor
+
+A forgetful functor (also known as a **stripping functor**) **forgets** or drops some or all of the input's structure or properties **before** mapping to the output. 
+
+
 #### Natural transformation
 
 Given categories `C`, `D`, two functors `F, G: C -> D` a natural transformation `$$α$$ : F -> G` and have the relationship as follows:
