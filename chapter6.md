@@ -27,6 +27,8 @@ $$\operatorname {Hom}_{{{\mathbf  {Mod}}_{R}}}(\operatorname {Free}_{R}(X),M)=\o
 
 https://en.wikipedia.org/wiki/Free_object#Free_functor
 
+The most general setting for a `free` object is in category theory, where one defines a functor, the free functor, that is the left adjoint to the forgetful functor.
+
 #### Natural transformation
 
 Given categories `C`, `D`, two functors `F, G: C -> D` a natural transformation `$$α$$ : F -> G` and have the relationship as follows:
