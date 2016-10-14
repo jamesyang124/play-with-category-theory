@@ -31,6 +31,11 @@ The most general setting for a `free` object is in category theory, where one de
 
 Informally, a free object over a set A can be thought of as being a "generic" algebraic structure over A
 
+for any object B and any map between sets `f: X → F(B)`, there exists a unique morphism `g: A → B` such that `f = F(g) o i`. That is, the following diagram commutes:
+
+![algebra](https://wikimedia.org/api/rest_v1/media/math/render/svg/e9dcb50f70871efebb0045c240dbf5567758dedc)
+
+
 #### Natural transformation
 
 Given categories `C`, `D`, two functors `F, G: C -> D` a natural transformation `$$α$$ : F -> G` and have the relationship as follows:
