@@ -21,6 +21,12 @@ A forgetful functor (also known as a **stripping functor**) **forgets** or drops
 
 Forgetful functors tend to have **left adjoints**, which are **free constructions**.
 
+$$\operatorname {Hom}_{{{\mathbf  {Mod}}_{R}}}(\operatorname {Free}_{R}(X),M)=\operatorname {Hom}_{{{\mathbf  {Set}}}}(X,\operatorname {Forget}(M))$$
+
+#### Free Object
+
+https://en.wikipedia.org/wiki/Free_object#Free_functor
+
 #### Natural transformation
 
 Given categories `C`, `D`, two functors `F, G: C -> D` a natural transformation `$$α$$ : F -> G` and have the relationship as follows:
