@@ -82,3 +82,19 @@ which is **natural** for all variables `X` in `C` and `Y` in `D`.
 
 $$F\dashv G$$
 
+#### Home-set & Home-set functor
+
+https://ncatlab.org/nlab/show/opposite+category
+
+For a category `C`, the **opposite category** $$C^{op}$$ has the same objects as `C`, but a $$morphism$$ $$f:x→y$$ in $$C^{op}$$ is the same as a morphism $$f:y→x$$ in $$C $$, and a composite of morphisms `gf` in $$C^{op}$$ is defined to be the composite `fg` in $$C$$.
+
+https://ncatlab.org/nlab/show/hom-functor
+
+For $$C$$ a locally small category, its **hom-functor** is the functor:
+
+> $$ hom:C^{op}×C→Set$$
+
+for every pair $$x, y ∈ Ob(C)$$, a set $$Hom_C(x, y) ∈ Set$$. It is called the **hom-set** from `x` to `y`; its elements are called morphisms from `x` to `y`
+
+A specified morphism denoted $$id_x ∈  Hom_x ∈ (x,x)$$, called the **identity morphism** on `x`.
+
