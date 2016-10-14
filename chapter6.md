@@ -6,7 +6,7 @@ http://stackoverflow.com/questions/10342876/differences-between-functors-and-end
 
 A functor may go from one category to a different one, an endofunctor is a functor for **which start and target category are the same**.
 
-The key point why a monad has to be an endofunctor, is that join, as it is called in Haskell, or `µ`, as it is usually called in category theory, is part of the definition of a monad:
+The key point why a monad has to be an endofunctor, is that `join`, as it is called in Haskell, or `µ`, as it is usually called in category theory, is part of the definition of a monad:
 
 ```haskell
 :t join
@@ -14,3 +14,28 @@ join :: Monad m => m (m a) -> m a
 ```
 
 Also, identity function support a functor to be an endofunctor.
+
+#### Natural transformation
+
+Given categories `C`, `D`, two functors `F, G: C -> D` a natural transformation `$$α$$ : F -> G` and have the relationship as follows:
+
+$$\array{ 
+    F(x) 
+    & 
+    \stackrel{F(f)}{\to} 
+    & 
+    F(y) 
+    \\ 
+    \alpha_x\downarrow 
+    && 
+    \downarrow \alpha_y 
+    \\ G(x) 
+    & 
+    \stackrel{G(f)}{\to} & G(y) 
+  }
+  \,.$$
+  
+  
+#### Adjoint functor
+
+This means that they are equipped with natural transformations $$η:1C→R∘L$$ (the unit) and $$ϵ:L∘R→1D$$ (the counit) satisfying the triangle identities.
