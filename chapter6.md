@@ -102,3 +102,22 @@ we even used the current notation, referring to the set of functions `X -> Y` as
 
 #### Semigroup
 
+A algebraic structure which have a associative binary operation. The binary operation of a semigroup is most often denoted **multiplicatively**: `x . y` 
+
+Then `(x . y) . c === x . (y . c)` holds.
+
+Monoid is a semigroup since its `identity` or `empty` function holds this rule.
+
+- A left identity of a Semigroup is `s` an element $${\displaystyle}$$ e such that for all $${\displaystyle x}$$ in $${\displaystyle S}$$, $${\displaystyle ex=x}$$
+
+- A right identity is an element $${\displaystyle f}$$ such that for all $${\displaystyle x}$$ in $${\displaystyle S}$$, $${\displaystyle xf=x}$$.
+
+Left and right identities are both called **one-sided identities**.
+
+A **two-sided identity** (or just identity) is an element which is both a left and right identity. 
+
+**Semigroups with a two-sided identity are called monoids**.
+
+**A semigroup may have at most one two-sided identity**. If a semigroup has a two-sided identity, then the two-sided identity is the only one-sided identity in the semigroup. 
+
+If a semigroup has both a left identity and a right identity, then it has a two-sided identity (which is therefore the unique one-sided identity).
