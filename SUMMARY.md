@@ -7,6 +7,6 @@
 * [Forth Chapter](chapter4.md)
 * [Fifth Chapter](chapter5.md)
 * [Sixth Chapter](chapter6.md)
-* [References](references.md)
 * Seventh Chapter
+* [References](references.md)
 
