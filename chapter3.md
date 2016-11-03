@@ -41,6 +41,62 @@ But we **can't map a function that's inside a functor over another functor** wit
 
 We could pattern-match against the `Just` constructor to get the function out of it and then map it over `Just 5`, but we're looking for a more general and abstract way of doing that, which works across functors.
 
+To refine above definition:
+
+As useful as it is, `fmap` isn't much help if we want to apply a function of two or more arguments to functorial values.
+
+If we start by using `fmap` then we will get a partial applied function inside that `Functor` type:
+
+```haskell
+(+) <$> Just 2
+# (+) <$> Just 2 :: Num a => Maybe (a -> a)
+# result a f(b -> c) 
+```
+
+So we need a morphism which define `f(a -> b) -> f(a) -> f(b)`:
+
+```haskell
+(<*>) :: Applicative f => f (a -> b) -> f a -> f b
+```
+
+By this menas, we can curry our result until all input are curried, then final result delivered. To wrap function into a `Functor`, there has a `pure` morphism which wrap it:
+
+```haskell
+class (Functor f) => Applicative f where
+    pure  :: a -> f a
+    (<*>) :: f (a -> b) -> f a -> f b
+```
+
+Then we left those applicative functor laws:
+
+```haskell
+# -- Identity
+pure id <*> v = v
+
+# -- Homomorphism
+pure f <*> pure x = pure (f x)               
+
+# -- Interchange
+u <*> pure y = pure ($ y) <*> u
+
+# -- Composition
+pure (.) <*> u <*> v <*> w = u <*> (v <*> w) 
+
+# -- fmap
+fmap f x = pure f <*> x                      
+```
+
+`($ y)` is the function that supplies (**return**) `y` as argument to another function.
+
+#### Homomorphism 
+
+A function `f :: a -> b` between two monoids `a` and `b` is called a monoid homomorphism if it preserves the monoid structure, so that: 
+
+```haskell
+f mempty          = mempty
+f (x `mappend` y) = f x `mappend` f y
+```
+
 #### Currying
 
 In `Haskell`, functions are **curried** which means it only take a single input and return a partial function. The final result will be produced only when all input are curried.
