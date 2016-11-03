@@ -1,6 +1,30 @@
 # Monoid
 
 
+#### Semigroup
+
+A algebraic structure which have a associative binary operation. The binary operation of a semigroup is most often denoted **multiplicatively**: `x . y` 
+
+Then `(x . y) . c === x . (y . c)` holds.
+
+Monoid is a semigroup since its `identity` or `empty` function holds this rule.
+
+- A left identity of a Semigroup is `s` an element $${\displaystyle}$$ e such that for all $${\displaystyle x}$$ in $${\displaystyle S}$$, $${\displaystyle ex=x}$$
+
+- A right identity is an element $${\displaystyle f}$$ such that for all $${\displaystyle x}$$ in $${\displaystyle S}$$, $${\displaystyle xf=x}$$.
+
+Left and right identities are both called **one-sided identities**.
+
+A **two-sided identity** (or just identity) is an element which is both a left and right identity. 
+
+**Semigroups with a two-sided identity are called monoids**.
+
+**A semigroup may have at most one two-sided identity**. If a semigroup has a two-sided identity, then the two-sided identity is the only one-sided identity in the semigroup. 
+
+If a semigroup has both a left identity and a right identity, then it has a two-sided identity (which is therefore the unique one-sided identity).
+
+#### Monoid
+
 https://wiki.haskell.org/Monoid
 
 A monoid is when you have **an associative binary function and a value which acts as an identity with respect to that function**. 
@@ -15,6 +39,19 @@ class Monoid m where
     mappend :: m -> m -> m  
     mconcat :: [m] -> m  
     mconcat = foldr mappend mempty 
+    
+foldr :: (a -> b -> b) -> b -> [a] -> b 
+# takes a binary operator (a -> b -> b)
+# and init value b, list [a]
+# reduces the list using the binary operator, from right to left:
+# foldr f z [x1, x2, ..., xn] == x1 `f` (x2 `f` ... (xn `f` z)...)
+
+foldl' :: forall a b. (b -> a -> b) -> b -> [a] -> b
+# strict version of fold left
+# applied to a binary operator, 
+# a starting value (typically the left-identity of the operator), 
+# and a list, reduces the list using the binary operator, from left to right:
+# foldl f z [x1, x2, ..., xn] == (...((z `f` x1) `f` x2) `f`...) `f` xn
 ```
 
 Clearly we can have a monoid should have following properties:
@@ -23,6 +60,19 @@ Clearly we can have a monoid should have following properties:
 mempty `mappend` x = x
 x `mappend` mempty = x
 (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
+```
+
+Some laws:
+
+```haskell
+# -- associativity
+(x <> y) <> z = x <> (y <> z) 
+
+# -- left identity
+mempty <> x = x
+
+# -- right identity
+x <> mempty = x               
 ```
 
 `List` is a monoid:
