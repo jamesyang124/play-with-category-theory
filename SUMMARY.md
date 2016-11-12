@@ -8,6 +8,6 @@
 * [Fifth Chapter](chapter5.md)
 * [Sixth Chapter](chapter6.md)
 * [Seventh Chapter](chapter7.md)
-* [References](references.md)
 * [Eighth Chapter](chapter8.md)
+* [References](references.md)
 
