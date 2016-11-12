@@ -9,5 +9,5 @@
 * [Sixth Chapter](chapter6.md)
 * [Seventh Chapter](chapter7.md)
 * [References](references.md)
-* Eighth Chapter
+* [Eighth Chapter](chapter8.md)
 
