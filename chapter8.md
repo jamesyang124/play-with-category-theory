@@ -114,21 +114,44 @@ Birthday :: String -> Int -> Int -> Int -> Anniversary
 
 Meaning it's just a function which takes one String and three Int as arguments and **evaluates** to an `Anniversary`.
 
+```haskell
+smithWedding :: Anniversary
+smithWedding = Wedding "John Smith" "Jane Smith" 1987 3 4
+```
+
+<br>
+####Deconstructing types
+
+```haskell
+showDate :: Int -> Int -> Int -> String
+showDate y m d = show y ++ "-" ++ show m ++ "-" ++ show d
+
+showAnniversary :: Anniversary -> String
+
+-- deconstuct Anniversary type to specifc Birthday type
+showAnniversary (Birthday name year month day) =
+   name ++ " born " ++ showDate year month day
+
+showAnniversary (Wedding name1 name2 year month day) =
+   name1 ++ " married " ++ name2 ++ " on " ++ showDate year month day
+```
+
+We can deconstruct the values built in our data types. `showAnniversary` takes a single argument of type `Anniversary`. 
+
+Instead of just providing a name for the argument on the left side of the definition, however, **we specify one of the constructor functions and give names to each argument of the constructor**.
+
+A more formal way of describing this *giving names* process is to say we are **binding variables**. **Binding** is being used in the sense of assigning a variable to each of the values so that we can refer to them on the right side of the function definition.
+
+> Note that the parentheses around the constructor name and the bound variables are mandatory; **otherwise the compiler or interpreter would not take them as a single argument**. 
+> 
+> Also, it is important to have it absolutely clear that **the expression inside the parentheses is not a call to the constructor function, even though it may look just like one**.
 
 
+<br>
+#### `type` for making type synonyms
 
+Aliasing purpose. Type synonyms are mostly just a convenience.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```haskell
+type String = [Char]
+```
