@@ -20,6 +20,7 @@ So, the actual type signature of `+` uses a language feature that allows us **to
 
 The `(Num a) =>` part of the signature restricts `a` to number types – or, in Haskell terminology, `a` is restricted as a **instances of `Num`**.
 
+<br>
 #### Polymorphic guesswork
 
 You know that we don't need to specify types always because **the compiler can infer types**. You also know that we cannot mix types when functions require matched types.
@@ -42,6 +43,7 @@ The type inference accounts for the class specifications: `-7` can be any `Num`,
 
 With no other restrictions, `5.12` will assume the default `Fractional` type of `Double`, so `-7` will become a `Double` as well. `+` then proceeds normally and returns a `Double`.
 
+<br>
 #### Monomorphic trouble
 
 The common division operator `/`. It has the following type signature:
