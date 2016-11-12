@@ -68,3 +68,11 @@ fromIntegral :: (Integral a, Num b) => a -> b
 In some ways, this issue is annoying and tedious, **but it is an inevitable side-effect of having a rigorous approach to manipulating numbers**. 
 
 In Haskell, if you define a function with an `Int` argument, it will never be converted to an `Integer` or `Double`, unless you explicitly use a function like `fromIntegral`.
+
+Last Example `==`:
+
+```haskell
+(==) :: (Eq a) => a -> a -> Bool
+```
+
+Like `+` or `/`, `==` is a **polymorphic function**. `Eq` is simply the class for types of values which can be **compared for equality**, and **it includes all of the basic non-functional types**.
