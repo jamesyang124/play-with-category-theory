@@ -179,4 +179,4 @@ Prelude>:t length
 length :: [a] -> Int
 ```
 
-The `a` in the square brackets is not a type – **remember that type names always start with uppercase letters**. Instead, it is a **type variable**.
+The `a` in the square brackets is not a type – remember that **type names always start with uppercase letters**. Instead, it is a **type variable**.
