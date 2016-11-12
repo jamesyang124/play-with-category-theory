@@ -99,4 +99,6 @@ data Anniversary = Birthday String Int Int Int
                  | Wedding String String Int Int Int
 ```
 
-This declares a new data type `Anniversary`, which can be either a `Birthday` or a `Wedding`. A `Birthday` contains one string and three integers and a `Wedding` contains two strings and three integers. The definitions of the two possibilities **are separated by the vertical bar**.
+This declares a new data type `Anniversary`, which can be either a `Birthday` or a `Wedding`. A `Birthday` contains one string and three integers and a `Wedding` contains two strings and three integers. The definitions of the two possibilities **are separated by the vertical bar**. 
+
+With the declaration we also get two **constructor functions** for `Anniversary`; appropriately enough, they are called `Birthday` and `Wedding`. 
