@@ -106,3 +106,29 @@ With the declaration we also get two **constructor functions** for `Anniversary`
 Types defined by `data` declarations are often referred to as ***algebraic data types***.
 
 As usual with Haskell, the case of the first letter is important: **type names and constructor functions must start with capital letters**.
+
+```haskell
+*Main> :t Birthday
+Birthday :: String -> Int -> Int -> Int -> Anniversary
+```
+
+Meaning it's just a function which takes one String and three Int as arguments and **evaluates** to an `Anniversary`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
