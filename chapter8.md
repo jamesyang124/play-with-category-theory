@@ -76,3 +76,4 @@ Last Example `==`:
 ```
 
 Like `+` or `/`, `==` is a **polymorphic function**. `Eq` is simply the class for types of values which can be **compared for equality**, and **it includes all of the basic non-functional types**.
+
