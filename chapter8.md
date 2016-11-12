@@ -101,4 +101,8 @@ data Anniversary = Birthday String Int Int Int
 
 This declares a new data type `Anniversary`, which can be either a `Birthday` or a `Wedding`. A `Birthday` contains one string and three integers and a `Wedding` contains two strings and three integers. The definitions of the two possibilities **are separated by the vertical bar**. 
 
-With the declaration we also get two **constructor functions** for `Anniversary`; appropriately enough, they are called `Birthday` and `Wedding`. 
+With the declaration we also get two **constructor functions** for `Anniversary`; they are called `Birthday` and `Wedding`. 
+
+Types defined by `data` declarations are often referred to as ***algebraic data types***.
+
+As usual with Haskell, the case of the first letter is important: **type names and constructor functions must start with capital letters**.
