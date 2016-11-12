@@ -1,6 +1,6 @@
 # Type Basics I
 
-#### Function has types
+#### Function has type
 
 Values has its types, so did functions.
 
@@ -28,6 +28,8 @@ xor :: Bool -> Bool -> Bool
 xor p q = (p || q) && not (p && q)
 ```
 
+<br>
+
 #### Type inference
 
 If type signatures tell the interpreter (or compiler) about the function type, how did we write our earliest Haskell code **without type signatures**? 
@@ -46,10 +48,12 @@ isL :: Char -> Bool
 isL c = c == 'l'
 ```
 
+<br>
 #### Types prevent errors
 
 The role of types in preventing errors is central to typed languages. When passing expressions around you have to make sure the types match up like they did here. If they don't, you'll get **type errors** when you try to compile; your program won't pass the **typecheck**. This helps reduce bugs in your programs.
 
+<br>
 #### Constructor or Consing
 
 You can build a list by `:` consing operator. The process of building up a list this way is often referred to as **consing**. This terminology comes from LISP programmers who invented the verb **to cons** (a mnemonic for **constructor**).
@@ -67,6 +71,7 @@ In fact, Haskell builds all lists this way by consing all elements to the empty 
 
 The commas-and-brackets notation are just syntactic sugar. So `[1,2,3,4,5]` is exactly equivalent to `1:2:3:4:5:[]`.
 
+<br>
 #### Polymorphic types
 
 Counting how many things in a `list` should be independent of the type of `list`. Fortunately, we have a single function `length`, which works on all lists. How can that possibly work? As usual, checking the type of `length` provides a good hint:
