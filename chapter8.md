@@ -142,6 +142,7 @@ Instead of just providing a name for the argument on the left side of the defini
 
 A more formal way of describing this *giving names* process is to say we are **binding variables**. **Binding** is being used in the sense of assigning a variable to each of the values so that we can refer to them on the right side of the function definition.
 
+
 > Note that the parentheses around the constructor name and the bound variables are mandatory; **otherwise the compiler or interpreter would not take them as a single argument**. 
 > 
 > Also, it is important to have it absolutely clear that **the expression inside the parentheses is not a call to the constructor function, even though it may look just like one**.
