@@ -79,3 +79,11 @@ Last Example `==`:
 
 Like `+` or `/`, `==` is a **polymorphic function**. `Eq` is simply the class for types of values which can be **compared for equality**, and **it includes all of the basic non-functional types**.
 
+<br>
+#### Type declarations
+
+Haskell has three basic ways to declare a new type:
+- The `data` declaration, which defines new data types.
+- The `type` declaration for type synonyms, that is, alternative names for existing types.
+- The `newtype` declaration, which defines new data types equivalent to existing ones.
+
