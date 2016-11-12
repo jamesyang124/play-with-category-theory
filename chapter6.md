@@ -179,4 +179,22 @@ Prelude>:t length
 length :: [a] -> Int
 ```
 
-The `a` in the square brackets is not a type – remember that **type names always start with uppercase letters**. Instead, it is a **type variable**.
+The `a` in the square brackets is not a type – remember that **type names always start with uppercase letters**. Instead, it is a **type variable**. When Haskell sees a type variable, it allows any type to take its place. In type theory (a branch of mathematics), this is called **polymorphism**.
+
+Functions or values with only a single type are called **monomorphic**, and things that **use type variables to admit more than one type are polymorphic**.
+
+Note that within a single type signature, **all cases of the same type variable must be of the same type**. For example:
+
+```haskell
+f :: a -> a
+```
+
+means that `f` takes an argument of any type and gives something of the **same type as the result**, as opposed to
+
+```haskell
+f :: a -> b
+```
+
+which means that `f` takes an argument of any type and gives a result of any type which **may or may not** match the type of whatever we have for `b`. 
+
+**The different type variables do not specify that the types must be different, it only says that they can be different.**
