@@ -87,3 +87,16 @@ Haskell has three basic ways to declare a new type:
 - The `type` declaration for type synonyms, that is, alternative names for existing types.
 - The `newtype` declaration, which defines new data types equivalent to existing ones.
 
+<br>
+####`data` and constructor functions
+
+`data` is used to define new data types mostly using existing ones as building blocks:
+
+```haskell
+-- name, year, month, day
+data Anniversary = Birthday String Int Int Int
+ -- spouse name 1, spouse name 2, year, month, day
+                 | Wedding String String Int Int Int
+```
+
+This declares a new data type `Anniversary`, which can be either a `Birthday` or a `Wedding`. A `Birthday` contains one string and three integers and a `Wedding` contains two strings and three integers. The definitions of the two possibilities **are separated by the vertical bar**.
