@@ -1,7 +1,7 @@
 # Applicative Functor
 
 
-#### Part I - Application in functors
+#### Ver 1.0 - Application in functors
 
 We have know about the application `$` operator and functor `fmap`, as useful as it is, `fmap` isn't much help if we want to apply a function of two arguments to functorial values. 
 
@@ -31,8 +31,102 @@ Prelude> :t (<*>)
 
 Ordianry `Functors` help us related two categories' types, but have limit ability to related function applications in two different categories. We need to define applicative functors for higher abstraction.
 
+Before we jump to next section to convey the intention of applicative functor, lets see an example which use pattern matching to do the same thing as applicative functor did:
+
+```haskell
+interactiveSumming = do
+    putStrLn "Choose two numbers:"
+    sx <- getLine
+    sy <- getLine
+    let mx = readMaybe sx :: Maybe Double
+        my = readMaybe sy
+    case mx of
+        -- not an applicative functor, so have to apply by specific rules
+        Just x -> case my of
+            Just y -> putStrLn ("The sum of your numbers is " ++ show (x+y))
+            Nothing -> retry
+        Nothing -> retry
+    where
+    retry = do
+        putStrLn "Invalid number. Retrying..."
+        interactiveSumming
+```
+
+`interactiveSumming` works, but it is somewhat annoying to write. If only there was a way of summing the numbers before unwrapping them, analogously to what we did with `fmap` in the second version of `interactiveDoubling`, we would be able to get away with just one case:
+
+```haskell
+-- Wishful thinking...
+    case somehowSumMaybes mx my of
+        Just z -> putStrLn ("The sum of your numbers is " ++ show (x+y))
+        Nothing -> do
+            putStrLn "Invalid number. Retrying..."
+            interactiveSumming
+```
+
+But what should we put in place of `somehowSumMaybes`? `fmap`, for one, is not enough. While `fmap (+)` works just fine to partially apply `+` to the value wrapped by `Maybe`:
+
+```haskell
+:t fmap (+) (Just 3)
+fmap (+) (Just 3) :: Num a => Maybe (a -> a)
+```
+
+We don't know how to apply a function wrapped in `Maybe` to the second value. For that, we would need a function with a signature like this:
+
+```haskell
+<*> :: Maybe (a -> b) -> Maybe(a) -> Maybe(b)
+```
+
+Which would then be used like this:
+
+```haskell
+fmap (+) (Just 3) <*> Just 4
+Just 7
+```
+
+We can then use `<*>` which is the infix synonym of `fmap` 
+
+```haskell
+(+) <$> Just 3 <*> Just 4
+Just 7
+
+-- infix version of fmap
+(\y -> y + 5) <$> pure 6
+11
+
+fmap (\y -> y + 5) (pure 6)
+11
+
+:t (<$>)
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+
+:t fmap
+fmap :: Functor f => (a -> b) -> f a -> f b
+```
+
+Finally, we can rewrite the whole program with higher abstraction, without overuse of pattern matching:
+
+```haskell
+instance Applicative Maybe where
+    pure                  = Just
+    (Just f) <*> (Just x) = Just (f x)
+    _        <*> _        = Nothing
+
+
+interactiveSumming = do
+    putStrLn "Choose two numbers:"
+    sx <- getLine
+    sy <- getLine
+    let mx = readMaybe sx :: Maybe Double
+        my = readMaybe sy
+    case (+) <$> mx <*> my of
+        Just z -> putStrLn ("The sum of your numbers is " ++ show z)
+        Nothing -> do
+            putStrLn "Invalid number. Retrying..."
+            interactiveSumming
+```
+
 <br>
-#### Part II - Why we need applicative functor?
+#### Ver 2.0 - Why we need applicative functor?
 
 Take `*` multiplier as an example, it takes two inputs over a functor, when we do `fmap (*) (Just 3)` it turns out `Just(* 3)` partial applied function. What if we want to map `Just(* 3)` functor over `Just(5)` to get the result? 
 
@@ -187,7 +281,7 @@ u <*> pure y = pure ($ y) <*> u              -- Interchange
 pure (.) <*> u <*> v <*> w = u <*> (v <*> w) -- Composition
 ```
 
-The interchange law says that applying a morphism to a **pure** value `pure y` is the same as applying `pure ($ y)` to the morphism. No surprises there - as we have seen in the higher order functions chapter, **`($ y)` is the function that supplies `y` as argument to another function**.
+The interchange law says that applying a morphism to a **pure** value `pure y` is the same as applying `pure ($ y)` to the morphism. No surprises there - as we have seen in the higher order functions chapter, **`($ y)` is a partial applied function that supplies `y` as argument to  another function from next input argument**.
 
 ```haskell
 -- call it as prefix operator
@@ -201,6 +295,9 @@ The interchange law says that applying a morphism to a **pure** value `pure y` i
 -- call it as section, apply right side first
 ($ 6) (\y -> y + 5)
 11
+
+:t ($ 6)
+($ 6) :: Num a => (a -> b) -> b
 
 (\y -> y + 5) $ 6
 11
