@@ -67,6 +67,8 @@ The `.` composition operator is another higher-order function. It has the signat
 It takes a function as its first argument, and **all it does is to apply the function to the second argument**, so that, for instance:
 
 ```haskell
+$ :: (a -> b) -> a -> b
+
 (head $ "abc") == (head "abc")
 ```
 You might think that `$` is completely useless! However, there are two interesting points about it.
@@ -102,13 +104,14 @@ id :: a -> a
 Similar to `id`, `const` takes two arguments, **discards the second and returns the first**:
 
 ```haskell
+-- a -> b -> a == a -> (b -> a) by currying
 const :: a -> b -> a
 
 Prelude> const "Hello" "world"
 "Hello"
 ```
 
-Seen as a function of one argument, `a -> (b -> a)`, it returns a constant function, which **always returns the same value no matter what argument it is given**.
+Seen as a function of one argument, `a -> (b -> a)` by currying, it returns a constant function, which **always returns the same value no matter what argument it is given**.
 
 `id` and `const` might appear worthless at first. However, when dealing with higher-order functions **it is sometimes necessary to pass a dummy function**, be it one that does nothing with its argument or one that always returns the same value. `id` and `const` give us convenient dummy functions for such cases.
 
