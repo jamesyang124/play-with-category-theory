@@ -1,18 +1,5 @@
 # Functions and Currying
 
-#### Operators
-
-In Haskell, **any function that takes two arguments and has a name consisting entirely of *non-alphanumeric* characters is considered an operator**. 
-
-Unlike other functions, operators are normally used *infix* (written between the two arguments). All operators can also be surrounded with parentheses and then used prefix like other functions:
-
-```haskell
--- these are the same:
-2 + 4
-(+) 2 4
-```
-
-
 #### Anonymous Functions - lambdas
 
 ```haskell
@@ -43,6 +30,20 @@ So, **all functions in Haskell really take *only one* argument**. However, when 
 **The process of creating intermediate functions when feeding arguments into a complex function is called *currying***.
 
 **Each step except the last of currying yields a partial applied function.**
+
+
+<br>
+#### Operators
+
+In Haskell, **any function that takes two arguments and has a name consisting entirely of *non-alphanumeric* characters is considered an operator**. 
+
+Unlike other functions, operators are normally used *infix* (written between the two arguments). All operators can also be surrounded with parentheses and then used prefix like other functions:
+
+```haskell
+-- these are the same:
+2 + 4
+(+) 2 4
+```
 
 <br>
 ####Sections
@@ -111,7 +112,7 @@ The `.` composition operator is another higher-order function. It has the signat
 It takes a function as its first argument, and **all it does is to apply the function to the second argument**, so that, for instance:
 
 ```haskell
-$ :: (a -> b) -> a -> b
+($) :: (a -> b) -> a -> b
 
 (head $ "abc") == (head "abc")
 ```
