@@ -32,6 +32,37 @@ So, **all functions in Haskell really take *only one* argument**. However, when 
 **Each step except the last of currying yields a partial applied function.**
 
 <br>
+####Sections
+
+An operator within parentheses and flanked by one of its arguments:
+
+```haskell
+(2+) 4
+(+4) 2
+```
+
+above is a new function in its own right. `(2+)`, for instance, has the type `(Num a) => a -> a`. We can pass sections to other functions, e.g. `map (+2) [1..4] == [3..6]`
+
+**Sections are just syntactic sugar for lambda operations. I.e. `(+2)` is equivalent to `\x -> x + 2`**.
+
+If you have a *normal prefix function* and want to use it as an operator, simply surround it with backticks:
+
+```haskell
+1 `elem` [1..4]
+```
+
+**This is called making the function *infix***. It's normally done for readability purposes: 
+
+> `1 `elem` [1..4]` reads better than `elem 1 [1..4]`.
+
+You can also define functions infix:
+
+```haskell
+elem :: (Eq a) => a -> [a] -> Bool
+x `elem` xs = any (==x) xs
+```
+
+<br>
 ####Higher-Order Functions and Types
 
 Example:
