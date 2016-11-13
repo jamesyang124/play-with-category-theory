@@ -10,6 +10,8 @@ The expression in the parentheses is a lambda function. **The backslash is used 
 
 #### Currying
 
+In `Haskell`, functions are **curried** which means it only take a single input and return a partial function. The final result will be produced only when all input are curried.
+
 ```haskell
 applyToIntegers :: (Integer -> Integer) -> [Integer] -> [Integer]
 applyToIntegers _ [] = []
