@@ -159,7 +159,7 @@ type String = [Char]
 
 #### Parameterized Types
 
-Parameterized types are similar to **generic** or **template** types in other languages. **A parameterized type takes one or more type parameters** in declaration.
+Parameterized types are similar to **generic** or **template** types in other languages. **A parameterized type takes one or more type parameters** in `data`, `type`, `newtype` declaration.
 
 ```haskell
 data Maybe a = Nothing | Just a
