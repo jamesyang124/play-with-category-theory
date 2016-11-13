@@ -9,7 +9,7 @@
 * [Sixth Chapter](chapter6.md)
 * [Seventh Chapter](chapter7.md)
 * [Eighth Chapter](chapter8.md)
+* [Tenth Chapter](chapter10.md)
 * [Ninth Chapter](chapter9.md)
 * [References](references.md)
-* [Tenth Chapter](chapter10.md)
 
