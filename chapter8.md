@@ -165,4 +165,10 @@ Parameterized types are similar to **generic** or **template** types in other la
 data Maybe a = Nothing | Just a
 ```
 
-This says that the type **Maybe takes a type parameter `a`**. You can use this to declare, for example:
+This says that the type **Maybe takes a type parameter `a`**. You can use this to **declare**, for example:
+
+```haskell
+lookupBirthday :: [Anniversary] -> String -> Maybe Anniversary
+```
+
+You can parameterize `type` and `newtype` declarations in exactly the same way. 
