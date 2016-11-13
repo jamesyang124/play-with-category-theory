@@ -188,3 +188,24 @@ pure (.) <*> u <*> v <*> w = u <*> (v <*> w) -- Composition
 ```
 
 The interchange law says that applying a morphism to a **pure** value `pure y` is the same as applying `pure ($ y)` to the morphism. No surprises there - as we have seen in the higher order functions chapter, **`($ y)` is the function that supplies `y` as argument to another function**.
+
+```haskell
+-- call it as prefix operator
+($) (\y -> y + 5) 6
+11
+
+-- call it as section, apply left side first
+((\y -> y + 5) $) 6
+11
+
+-- call it as section, apply right side first
+($ 6) (\y -> y + 5)
+11
+
+(\y -> y + 5) $ 6
+11
+
+6 $ (\y -> y + 5)
+<interactive>:70:1: error:
+    • Non type-variable argument in the constraint: Num ((a -> a) -> t)
+```
