@@ -182,7 +182,9 @@ Applicative functors are more powerful than just ordinary functors. With ordinar
 pure id <*> v = v                            -- Identity
 pure f <*> pure x = pure (f x)               -- Homomorphism
 
--- ($ y) u == (u $ y) apply u to function y in low precedence.
+-- ($ y) u == (u $ y) apply y to function u in low.
 u <*> pure y = pure ($ y) <*> u              -- Interchange
 pure (.) <*> u <*> v <*> w = u <*> (v <*> w) -- Composition
 ```
+
+The interchange law says that applying a morphism to a **pure** value `pure y` is the same as applying `pure ($ y)` to the morphism. No surprises there - as we have seen in the higher order functions chapter, **`($ y)` is the function that supplies `y` as argument to another function**.
