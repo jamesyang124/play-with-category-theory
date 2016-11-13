@@ -1,5 +1,18 @@
 # Functions and Currying
 
+#### Operators
+
+In Haskell, **any function that takes two arguments and has a name consisting entirely of *non-alphanumeric* characters is considered an operator**. 
+
+Unlike other functions, operators are normally used *infix* (written between the two arguments). All operators can also be surrounded with parentheses and then used prefix like other functions:
+
+```haskell
+-- these are the same:
+2 + 4
+(+) 2 4
+```
+
+
 #### Anonymous Functions - lambdas
 
 ```haskell
@@ -158,3 +171,4 @@ Prelude> let addPair = uncurry (+)
 Prelude> addPair (2, 3)
 5
 ```
+
