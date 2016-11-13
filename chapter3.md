@@ -1,7 +1,7 @@
 # Applicative Functor
 
 
-#### Application in functors
+#### Part I - Application in functors
 
 We have know about the application `$` operator and functor `fmap`, as useful as it is, `fmap` isn't much help if we want to apply a function of two arguments to functorial values. 
 
@@ -27,22 +27,19 @@ Prelude> :t (<*>)
 (<*>) :: Applicative f => f (a -> b) -> f a -> f b
 ```
 
-`<*>` is one of the methods of `Applicative`, the type class of applicative functors - **functors that support function application within their contexts**. 
+`<*>` is one of the methods of `Applicative`, the type class of applicative functors - functors that **support function application within their contexts**. 
+
+Ordianry `Functors` help us related two categories' types, but have limit ability to related function applications in two different catergories.
 
 <br>
-#### Why we need applicative functor?
+#### Part II - Why we need applicative functor?
 
-Take `*` as an example, it takes two inputs over a functor, when we do `fmap (*) (Just 3)` it turns out `Just(* 3)` partial applied function. What if we want to map `Just(* 3)` functor over `Just(5)` to get the result? 
-
-Even when we mapped `\f -> f 9` over a functor that contained functions inside it, we were **just mapping a normal function `g: a -> b`** over it though the output result will be what we expect for:
+Take `*` multiplier as an example, it takes two inputs over a functor, when we do `fmap (*) (Just 3)` it turns out `Just(* 3)` partial applied function. What if we want to map `Just(* 3)` functor over `Just(5)` to get the result? 
 
 ```haskell
 let a = fmap (*) [1,2,3,4]  
 :t a 
 #a :: Num a => [a -> a]
-
-fmap (\f -> f 9) a
-# [9,18,27,36]  
 ```
 
 But we **can't map a function that's inside a functor over another functor** with what `fmap` defined for us.
