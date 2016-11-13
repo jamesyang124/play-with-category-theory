@@ -63,7 +63,10 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 In `Haskell`, `Functor` type class definition:
 
 ```haskell
--- type variable f is many kind to many kinds.
+-- * -> * -> * is a template that takes two type arguments
+-- * is any concrete type, including functions.
+-- is a template that takes one type argument. It is like a function from types to types: you plug a type in and the result is a type.
+-- type variable f is * -> *.
 class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
