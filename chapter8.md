@@ -156,3 +156,13 @@ Aliasing purpose. Type synonyms are mostly just a convenience.
 ```haskell
 type String = [Char]
 ```
+
+#### Parameterized Types
+
+Parameterized types are similar to **generic** or **template** types in other languages. **A parameterized type takes one or more type parameters** in declaration.
+
+```haskell
+data Maybe a = Nothing | Just a
+```
+
+This says that the type **Maybe takes a type parameter `a`**. You can use this to declare, for example:
