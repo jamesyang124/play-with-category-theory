@@ -116,12 +116,3 @@ fooSquared (F2 x s) = F2 (x * x) s
 ```
 
 Even though the constructors ensure a will be some type in `Num` **we can't avoid duplicating the constraint in the signature of `fooSquared`**.
-
-<br>
-#### Anonymous Functions - lambdas
-
-```haskell
-sumStr = foldl (\ x str -> x + read str) 0.0
-```
-
-The expression in the parentheses is a lambda function. **The backslash is used as the nearest ASCII equivalent to the Greek letter lambda `λ`**. This lambda function takes two arguments, `x` and `str`.
