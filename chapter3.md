@@ -29,6 +29,7 @@ Prelude> :t (<*>)
 
 `<*>` is one of the methods of `Applicative`, the type class of applicative functors - **functors that support function application within their contexts**. 
 
+<br>
 #### Why we need applicative functor?
 
 Take `*` as an example, it takes two inputs over a functor, when we do `fmap (*) (Just 3)` it turns out `Just(* 3)` partial applied function. What if we want to map `Just(* 3)` functor over `Just(5)` to get the result? 
@@ -95,6 +96,7 @@ fmap f x = pure f <*> x
 
 `($ y)` is the function that supplies (**return**) `y` as argument to another function.
 
+<br>
 #### Homomorphism 
 
 A function `f :: a -> b` between two monoids `a` and `b` is called a monoid homomorphism if it preserves the monoid structure, so that: 
@@ -103,10 +105,6 @@ A function `f :: a -> b` between two monoids `a` and `b` is called a monoid homo
 f mempty          = mempty
 f (x `mappend` y) = f x `mappend` f y
 ```
-
-#### Currying
-
-In `Haskell`, functions are **curried** which means it only take a single input and return a partial function. The final result will be produced only when all input are curried.
 
 The functor only address a single input function `(f: a -> b)`. But what if we need a multi-parameters function inside a functor and map over to final output in a general way?
 
