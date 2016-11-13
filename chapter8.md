@@ -83,7 +83,7 @@ Like `+` or `/`, `==` is a **polymorphic function**. `Eq` is simply the class fo
 #### Type declarations
 
 Haskell has three basic ways to declare a new type:
-- The `data` declaration, which defines new data types.
+- The `data` declaration, which defines new data types, `data` defines a type constructor for *algebraic data types*.
 - The `type` declaration for type synonyms, that is, alternative names for existing types.
 - The `newtype` declaration, which defines new data types equivalent to existing ones.
 
