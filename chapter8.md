@@ -157,6 +157,7 @@ Aliasing purpose. Type synonyms are mostly just a convenience.
 type String = [Char]
 ```
 
+<br>
 #### Parameterized Types
 
 Parameterized types are similar to **generic** or **template** types in other languages. **A parameterized type takes one or more type parameters in `data`, `type`, and `newtype` declaration**.
@@ -177,5 +178,7 @@ We can also have more than one type parameter:
 data Either a b = Left a | Right b
 ```
 
+<br>
 #### Kind errors
 
+The flexibility of Haskell parameterized types **can lead to errors in type declarations that are somewhat like `type errors`, except that they occur in the type declarations** rather than in the program proper. Errors in these *types of types* are known as **kind errors**. You don't program with kinds,  the compiler infers them for itself. But if you get parameterized types wrong then the compiler will report a kind error.
