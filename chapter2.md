@@ -17,18 +17,19 @@ Then there has two axioms that functors must obey:
 
 1. Given identity morphism `id(A)` on object `A`, `F(id(A))` must be the identity morphism on `F(A)`:
 
-```haskell
-F(id(A)) = id(F(A)) 
-
--- above is equivalent to:
-F[(id: A -> A)] = (id: F[A] -> F[A])
-```
+  $$F(id_{A})=id_{{F(A)}}$$
+  
+  So here has two identity morphisms - $$id_{A}$$ and $$id_{F(A)}$$, the result can be interpret in Haskell as:
+  
+  ```haskell
+  f (id a) = id (f a)
+  ```
 
 2. Functors must distributed over morphism composition:
 
-```haskell
-F(f . g) == F(f) . F(g)
-```
+  ```haskell
+  F(f . g) == F(f) . F(g)
+  ```
 
 Conclude above, the **functor laws** and **functor typeclass definition**:
 
