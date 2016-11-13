@@ -63,13 +63,16 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 In `Haskell`, `Functor` type class definition:
 
 ```haskell
--- * -> * -> * is a template that takes two type arguments
--- * is any concrete type, including functions.
--- is a template that takes one type argument. It is like a function from types to types: you plug a type in and the result is a type.
--- type variable f is * -> *.
 class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
+
+
+`*` is any concrete type, including functions(as type signature). 
+
+1. `* -> *` is a template that takes one type argument. It is like a function from types to types: you plug a type in and the result is a type.
+
+2. `* -> * -> *` is a template that takes two type arguments and result a type.
 
 `fmap` is the same as `(a -> b) -> (f a -> f b)` and can be read as: 
 
