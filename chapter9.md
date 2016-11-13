@@ -51,6 +51,7 @@ You can only use deriving with a limited set of built-in classes:
 - `Enum`
 - `Bounded`
 - `Show`
+  Defines the function show, which converts a value into a string, and other related functions.
 - `Read` 
 
 The precise rules for deriving the relevant functions are given in the language report.
@@ -100,7 +101,19 @@ Beyond simple type signatures, type constraints can be introduced in a number of
 
 - `data` declarations: where they act as constraints for the **constructor signatures**.
 
-> 
-> Type constraints in data declarations are less useful than it might seem at first. Consider:
-> `data (Num a) => Foo a = F1 a | F2 a String`
+Type constraints in data declarations are less useful than it might seem at first. Consider:
 
+```haskell
+data (Num a) => Foo a = F1 a | F2 a String
+```
+
+Here, `Foo` is a type with two constructors, both taking an argument of a type `a` which must be in `Num`. However, **the `(Num a) =>` constraint is only effective for the `F1` and `F2` constructors, and not for other functions involving `Foo`**.
+
+```haskell
+-- duplicating type constraint (Num a)
+fooSquared :: (Num a) => Foo a -> Foo a
+fooSquared (F1 x)   = F1 (x * x)
+fooSquared (F2 x s) = F2 (x * x) s
+```
+
+Even though the constructors ensure a will be some type in `Num` **we can't avoid duplicating the constraint in the signature of `fooSquared`**.
