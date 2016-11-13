@@ -176,3 +176,6 @@ We can also have more than one type parameter:
 ```haskell
 data Either a b = Left a | Right b
 ```
+
+#### Kind errors
+
