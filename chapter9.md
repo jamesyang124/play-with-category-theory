@@ -50,8 +50,7 @@ You can only use deriving with a limited set of built-in classes:
 - `Ord`
 - `Enum`
 - `Bounded`
-- `Show`
-   Defines the function show, which converts a value into a string, and other related functions.
+- `Show` - defines the function show, which converts a value into a string, and other related functions.
 - `Read` 
 
 The precise rules for deriving the relevant functions are given in the language report.
