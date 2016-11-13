@@ -29,7 +29,28 @@ xor p q = (p || q) && not (p && q)
 ```
 
 <br>
+#### Type Signature
 
+A type signature in `Haskell` represents the behavior of the morphism, ex: `readFile` function's type signature:
+
+```haskell
+readFile :: FilePath -> IO String
+```
+
+It means that it take a `FilePath` type then return a `IO String` type.
+
+We can also find that fat arrow `=>` in another example:
+
+```haskell
+:t (==)  
+(==) :: (Eq a) => a -> a -> Bool  
+```
+
+Everything before the `=>` symbol is called a **typeclass constraint**, We can read the previous type declaration like this:
+
+> The equality function takes any two values that are of the same type and returns a `Bool`. The type of those two values must be a member of the `Eq` class (this was the class constraint).
+
+<br>
 #### Type inference
 
 If type signatures tell the interpreter (or compiler) about the function type, how did we write our earliest Haskell code **without type signatures**? 
