@@ -1,26 +1,33 @@
 # Applicative Functor
 
-#### Type Signature
 
-A type signature in `Haskell` represents the behavior of the morphism, ex: `readFile` function's type signature:
+#### Application in functors
 
-```haskell
-readFile :: FilePath -> IO String
-```
+We have know about the application `$` operator and functor `fmap`, as useful as it is, `fmap` isn't much help if we want to apply a function of two arguments to functorial values. 
 
-It means that it take a `FilePath` type then return a `IO String` type.
+How could we sum `Just 2` and `Just 3`? The brute force approach would be extracting the values from the `Maybe` wrapper. That, however, would mean having to do tedious checks for `Nothing`. Even worse: in a different `Functor` extracting the value might not even be an option (just think about `IO`).
 
-We can also find that fat arrow `=>` in another example:
+We could use `fmap` to partially apply `+` to the first argument:
 
 ```haskell
-:t (==)  
-(==) :: (Eq a) => a -> a -> Bool  
+Prelude> :t (+) <$> Just 2
+-- a partial applied function wrapped in Maybe
+(+) <$> Just 2 :: Num a => Maybe (a -> a)
 ```
 
-Everything before the `=>` symbol is called a **class constraint**, We can read the previous type declaration like this:
+But now we are stuck: **we have a function and a value both wrapped in `Maybe`, and no way of applying one to the other**.
 
-> The equality function takes any two values that are of the same type and returns a `Bool`. The type of those two values must be a member of the `Eq` class (this was the class constraint).
+What we would like to have is an operator with a type akin to `f (a -> b) -> f a -> f b` to apply functions in the context of a functor - `<*>`:
 
+```haskell
+(+) <$> Just 2 <*> Just 3
+Just 5
+
+Prelude> :t (<*>)
+(<*>) :: Applicative f => f (a -> b) -> f a -> f b
+```
+
+`<*>` is one of the methods of `Applicative`, the type class of applicative functors - **functors that support function application within their contexts**. 
 
 #### Why we need applicative functor?
 
