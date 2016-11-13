@@ -182,7 +182,7 @@ Applicative functors are more powerful than just ordinary functors. With ordinar
 pure id <*> v = v                            -- Identity
 pure f <*> pure x = pure (f x)               -- Homomorphism
 
--- ($ y) u == ($ y u) apply u to function y in low precedence.
+-- ($ y) u == (u $ y) apply u to function y in low precedence.
 u <*> pure y = pure ($ y) <*> u              -- Interchange
 pure (.) <*> u <*> v <*> w = u <*> (v <*> w) -- Composition
 ```
