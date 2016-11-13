@@ -29,7 +29,7 @@ Prelude> :t (<*>)
 
 `<*>` is one of the methods of `Applicative`, the type class of applicative functors - functors that **support function application within their contexts**. 
 
-Ordianry `Functors` help us related two categories' types, but have limit ability to related function applications in two different catergories.
+Ordianry `Functors` help us related two categories' types, but have limit ability to related function applications in two different categories. We need to define applicative functors for higher abstraction.
 
 <br>
 #### Part II - Why we need applicative functor?
@@ -107,6 +107,7 @@ The functor only address a single input function `(f: a -> b)`. But what if we n
 
 To address above **multi-paramters** issue and provide a general definition for **mapping a functor which have a function over another functor**, **Applicative** type class defined as follow:
 
+<br>
 #### Definition
 
 ```haskell
@@ -115,7 +116,9 @@ class (Functor f) => Applicative f where
     (<*>) :: f (a -> b) -> f a -> f b  
 ```
 
-It starts the definition of the `Applicative` class and **it also introduces a class constraint**. 
+Beyond `<*>`, the class has a second method, `pure`, which brings arbitrary values(maybe a function) into the functor. 
+
+It starts the definition of the `Applicative` class and **it also introduces a class constraint `(Fucntor f)`**. 
 
 It says that if we want to make a type constructor part of the `Applicative` typeclass, **it has to be in `Functor` first**. That's why if we know that if a type constructor is part of the `Applicative` typeclass, it's also in `Functor`, so we can use `fmap` on it.
 
@@ -171,3 +174,15 @@ liftA2 f a b = f <$> a <*> b
 ```
 
 Applicative functors are more powerful than just ordinary functors. With ordinary functors, we can just map functions over **one functor**. But with applicative functors, **we can apply a function between several functors**.
+
+<br>
+#### Applicative functor laws
+
+```haskell
+pure id <*> v = v                            -- Identity
+pure f <*> pure x = pure (f x)               -- Homomorphism
+
+-- ($ y) u == ($ y u) apply u to function y in low precedence.
+u <*> pure y = pure ($ y) <*> u              -- Interchange
+pure (.) <*> u <*> v <*> w = u <*> (v <*> w) -- Composition
+```
