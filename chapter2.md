@@ -17,11 +17,41 @@ Then there has two axioms that functors must obey:
 
 1. Given identity morphism `id(A)` on object `A`, `F(id(A))` must be the identity morphism on `F(A)`:
 
-  > *** `F(id(A)) = id(F(A)) <=> F[(id: A -> A)] = (id: F[A] -> F[A])` ***
+```haskell
+F(id(A)) = id(F(A)) 
+
+-- above is equivalent to:
+F[(id: A -> A)] = (id: F[A] -> F[A])
+```
 
 2. Functors must distributed over morphism composition:
 
-  > *** `F(f . g) == F(f) . F(g)` ***
+```haskell
+F(f . g) == F(f) . F(g)
+```
+
+Conclude above, the **functor laws** and **functor typeclass definition**:
+
+```haskell
+-- functor definition
+class Functor t where
+  fmap :: (a -> b) -> t a -> t b
+  
+-- functor laws
+fmap id = id
+fmap (g . f) = fmap g . fmap f
+```
+
+<br>
+#### What did we gain?
+
+At this point, we can ask what benefit we get from the extra layer of generalization brought by the `Functor` class. There are two significant advantages:
+
+1. The availability of the `fmap` method relieves us from having to **recall**, **read**, and **write** a plethora of differently named mapping methods (`maybeMap`, `treeMap`, `weirdMap`). 
+
+  On spotting a use of `fmap`, we instantly have a general idea of what is going on.Thanks **to the guarantees given by the functor laws, this general idea is surprisingly precise**. 
+
+2. Using the type class system, we can write `fmap`-based algorithms which work out of the box with any functor - be it `[]`, `Maybe`, `Tree` or whichever you need.
 
 <br/>
 #### Example
@@ -33,6 +63,7 @@ Now consider `Lst` subcategory in `Hask` category, it contains **only list types
 In `Haskell`, `Functor` type class definition:
 
 ```haskell
+-- type variable f is many kind to many kinds.
 class Functor (f :: * -> *) where
   fmap :: (a -> b) -> f a -> f b
 ```
