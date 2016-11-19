@@ -118,7 +118,7 @@ means that `f` takes an argument of any type and gives something of the **same t
 f :: a -> b
 ```
 
-which means that `f` takes an argument of any type and gives a result of any type which **may or may not** match the type of whatever we have for `b`. 
+which means that `f` takes an argument of any type and gives a result of any type which **may or may not** match the type of whatever we have for `a`. 
 
 **The different type variables do not specify that the types must be different, it only says that they can be different.** In this case, `a`, `b` may be the same type.
 
