@@ -20,17 +20,14 @@ applyMaybe (Just x) f = f x
 <br>
 ####Definition
 
-A monad is a functor `M : C -> C`, along with two morphisms for every object `X` in `C`:
+Academically, a monad is a functor `M : C -> C`, along with two morphisms for every object `X` in `C`:
 
-In mathematical way, we use Scala-liked synatx to define a Monad as:
-
-```scala
-// M is a monad
-def unit: a => M(a)
-def join: M(M(x)) => M(x)
-```
+- $${\mathit  {unit}}_{X}^{M}:X\to M(X)$$
+- $${\displaystyle {\mathit {join}}_{X}^{M}:M(M(X))\to M(X)}$$
 
 It means it must have two functions, one is the unit function which is very similar to `pure` function in functor. Another `join` function transform a double-wrapped value `M(M(x))` to `M(x)`, **which flatten inner `M`context**.
+
+**Any time you have some kind of structure $$M$$ and a natural way of taking any object $$X$$ into $${\displaystyle M(X)}$$, as well as a way of taking $${\displaystyle M(M(X))} $$ into $${\displaystyle M(X)}$$, you probably have a monad.**
 
 We can define `Monad` in Haskell as:
 
@@ -57,6 +54,9 @@ m >>= g = case m of
             Just x  -> g x
 ```
 
+`(>>=)` helps us pass **non-monadic values** to functions without actually leaving a monad. In the case of the `Maybe` monad, the monadic aspect is the qualifier that we don't know with certainty whether the value will be found: `Nothing` or `Just`.
+
+<br>
 #### Three Monad laws
 
 In Haskell, every instance of the `Monad` type class (and thus all implementations of bind `(>>=)` and `return`) must obey the following three laws:
@@ -68,8 +68,7 @@ return x >>= f   =  f x                      -- left unit
 (m >>= f) >>= g  =  m >>= (\x -> f x >>= g)  -- associativity
 ```
 
-
-
+<br>
 #### Definition revised.
 
 ```haskell
