@@ -32,6 +32,46 @@ def join: M(M(x)) => M(x)
 
 It means it must have two functions, one is the unit function which is very similar to `pure` function in functor. Another `join` function transform a double-wrapped value `M(M(x))` to `M(x)`, **which flatten inner `M`context**.
 
+We can define `Monad` in Haskell as:
+
+1. a type constructor `m`
+2. a function `return`
+3. an operator `(>>=)` which is pronounced **bind**.
+
+```haskell
+return :: a -> m a
+(>>=)  :: m a -> (a -> m b) -> m b
+```
+
+For a concrete example, take the `Maybe` monad. The type constructor is `m = Maybe`, while `return` and `(>>=)` are defined like this:
+
+```haskell
+-- return type signature:
+-- return :: a -> Maybe a
+return x  = Just x
+
+-- (>>=) type signature:
+-- (>>=)  :: Maybe a -> (a -> Maybe b) -> Maybe b
+m >>= g = case m of
+            Nothing -> Nothing
+            Just x  -> g x
+```
+
+#### Three Monad laws
+
+In Haskell, every instance of the `Monad` type class (and thus all implementations of bind `(>>=)` and `return`) must obey the following three laws:
+
+```haskell
+m >>= return     =  m                        -- right unit
+return x >>= f   =  f x                      -- left unit
+
+(m >>= f) >>= g  =  m >>= (\x -> f x >>= g)  -- associativity
+```
+
+
+
+#### Definition revised.
+
 ```haskell
 return :: a -> m a
 join :: Monad m => m (m a) -> m a
