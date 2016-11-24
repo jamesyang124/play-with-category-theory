@@ -108,7 +108,9 @@ Functions or values with only a single type are called **monomorphic**, and thin
 
 
 <br>
-#### type variable
+#### Type variable
+
+http://learnyouahaskell.com/making-our-own-types-and-typeclasses
 
 Note that within a single type signature, **all cases of the same type variable must be of the same type**. For example:
 
@@ -116,17 +118,17 @@ Note that within a single type signature, **all cases of the same type variable 
 f :: a -> a
 ```
 
-means that `f` takes an argument of any type and gives something of the **same type as the result**, as opposed to
+This means that `f` takes an argument of any type and gives something of the **same type as the result**, as opposed to
 
 ```haskell
 f :: a -> b
 ```
 
-which means that `f` takes an argument of any type and gives a result of any type which **may or may not** match the type of whatever we have for `a`. 
+`f` takes an argument of any type and gives a result of any type which **may or may not** match the type of whatever we have for `a`. 
 
-**The different type variables do not specify that the types must be different, it only says that they can be different.** In this case, `a`, `b` may be the same type.
+**The different type variables do not specify that the types must be different, it imply that they may be different.** In this case, `a`, `b` may be the same type. so `a -> b` does not mean `a` type must not be `b` type, but `a` can be unequal to `b`. 
 
-type variable can be any type from the **value constructor function**. so `a -> b` does not mean `a` type must not be `b` type, but `a` can be unequal to `b`. **Function has its type signature instead of a single type, so it won't be present as a single type variable**. 
+Type variable can be any type from the **value constructor function**. **Function has its type signature instead of a single type, so it won't be present as a single type variable**. 
 
 ```haskell
 data ShapeType = ValueConstructor1 Float Float | ValueConstructor2 Int deriving(Show)
@@ -146,4 +148,4 @@ addThree a x = x(a)
 addThree :: t -> (t -> t1) -> t1
 ```
 
-So the function must with its type signature, this is Haskell compiler try to type inference for you. You can also give type constraint to explicitly define your type variables scope. **So a function can not be note as a type variable, type variable only refers to a type**.
+The function must have its type signature, this is Haskell compiler try to do type inference for you. You can also give type constraint to explicitly define your type variables scope. **So a function can not be note as a type variable, type variable just refers to a type**.
