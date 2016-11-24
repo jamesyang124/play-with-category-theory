@@ -1,6 +1,6 @@
 # Type Basics I
 
-#### Function has type
+#### Function has type signature
 
 Values has its types, so did functions.
 
