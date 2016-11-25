@@ -46,7 +46,7 @@ Aside from return and bind, there are two additional methods, `(>>)` spelled "th
 m >> n = m >>= \_ -> n
 ```
 
-The function `fail` handles pattern match failures in `do` notation. 
+The function `fail` handles pattern match failures in `do` notation. You are advised not to call `fail` directly in your code.
 
 `(>>)` sequences two monadic actions when the second action does not involve the result of the first, which is a common scenario for monads such as `IO`.
 
