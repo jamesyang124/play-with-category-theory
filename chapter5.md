@@ -71,6 +71,22 @@ m >>= g = case m of
 
 `(>>=)` helps us pass **non-monadic values** to functions without actually leaving a monad. In the case of the `Maybe` monad, the monadic aspect is the qualifier that we don't know with certainty whether the value will be found: `Nothing` or `Just`.
 
+`Control.Monad` defines `liftM`:
+
+```hasekll
+liftM :: (Monad m) => (a1 -> r) -> m a1 -> m r
+```
+
+As you might suspect, `liftM` is merely `fmap` implemented with `(>>=)` and `return`, `liftM` and `fmap` are therefore interchangeable.
+
+Another function is `ap`:
+
+```haskell
+ap :: Monad m => m (a -> b) -> m a -> m b
+```
+
+Analogously to the other cases, `ap` is a monad-only version of `(<*>)`.
+
 <br>
 #### Three Monad laws
 
@@ -83,8 +99,23 @@ return x >>= f   =  f x                      -- left unit
 (m >>= f) >>= g  =  m >>= (\x -> f x >>= g)  -- associativity
 ```
 
+The associativity of the **then** operator `(>>)` is a special case:
+
+```haskell
+(m >> n) >> o  =  m >> (n >> o)
+```
+
+Monadic composition:
+
+```haskell
+(f >=> g) >=> h  =  f >=> (g >=> h)
+
+(>=>) :: Monad m => (a -> m b) -> (b -> m c) -> a -> m c
+f >=> g = \x -> f x >>= g
+```
+
 <br>
-#### Definition revised.
+#### Definition Revisited
 
 ```haskell
 return :: a -> m a
