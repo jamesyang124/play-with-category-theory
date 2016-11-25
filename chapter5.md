@@ -115,7 +115,7 @@ f >=> g = \x -> f x >>= g
 ```
 
 <br>
-#### Definition Revisit
+#### Extended Definition
 
 ```haskell
 return :: a -> m a
