@@ -40,6 +40,21 @@ return :: a -> m a
 (>>=)  :: m a -> (a -> m b) -> m b
 ```
 
+Aside from return and bind, there are two additional methods, `(>>)` spelled "then" and `fail`.
+
+```haskell
+m >> n = m >>= \_ -> n
+```
+
+The function `fail` handles pattern match failures in `do` notation. 
+
+`(>>)` sequences two monadic actions when the second action does not involve the result of the first, which is a common scenario for monads such as `IO`.
+
+```haskell
+printSomethingTwice :: String -> IO ()
+printSomethingTwice str = putStrLn str >> putStrLn str
+```
+
 For a concrete example, take the `Maybe` monad. The type constructor is `m = Maybe`, while `return` and `(>>=)` are defined like this:
 
 ```haskell
