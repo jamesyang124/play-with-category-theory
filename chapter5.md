@@ -439,8 +439,12 @@ class Monoid m where
 instance Monoid [a] where
   mempty  = []
   mappend = (++)
+  
+class Applicative f => Alternative f where
+  empty :: f a
+  (<|>) :: f a -> f a -> f a
 ```
 
-Note the use of `[a]` instead of `[]` in the instance declaration. Monoids are **not necessarily "wrappers" of anything**, or parametrically polymorphic. 
+Note the use of `[a]` instead of `[]` in the instance declaration. Monoids are **not necessarily "wrappers"(ex: `f`) of anything**, or parametrically polymorphic. 
 
 `Alternative` is a separate type class because it captures a specific sort of monoid with distinctive properties − for instance, a binary operation.
