@@ -332,3 +332,115 @@ m >>= (\x -> f x >>= g)
 = join (fmap (\x -> f x >>= g) m)
 = m >>= (\x -> f x >>= g)                          -- By the definition of (>>=)
 ```
+
+<br>
+#### Alternative
+
+`Alternative` is a subclass of `Applicative` whose instances must define, at a minimum, the following two methods:
+
+```haskell
+class Applicative f => Alternative f where
+  empty :: f a
+  (<|>) :: f a -> f a -> f a
+```
+
+`empty` is an applicative computation with zero results, while `(<|>)` is a binary function which combines two computations.
+
+```haskell
+instance Alternative Maybe where
+  empty               = Nothing
+  -- Note that this could have been written more compactly.
+  Nothing <|> Nothing = Nothing -- 0 results + 0 results = 0 results
+  Just x  <|> Nothing = Just x  -- 1 result  + 0 results = 1 result
+  Nothing <|> Just x  = Just x  -- 0 results + 1 result  = 1 result
+  Just x  <|> Just y  = Just x  -- 1 result  + 1 result  = 1 result:
+                                -- Maybe can only hold up to one result,
+                                -- so we discard the second one.
+
+instance Alternative [] where
+  empty = []
+  (<|>) = (++) -- length xs + length ys = length (xs ++ ys)
+```
+
+<br>
+#### Example: parallel parsing
+
+Traditional input parsing involves functions which consume an input one character at a time. That is, a parsing function takes an input string and chops off (i.e. "consumes") characters from the front if they satisfy certain criteria.
+
+If the characters on the front of the string don't satisfy the given criteria, the parser has **failed**.
+
+```haskell
+digit :: Int -> String -> Maybe Int
+digit i s | i > 9 || i < 0 = Nothing
+          | otherwise      = do
+  let (c:_) = s
+  if [c] == show i then Just i else Nothing
+```
+
+Now, `(<|>)` can be used to run two parsers in parallel. 
+
+That is, we use the result of the first one if it succeeds, and otherwise, we use the result of the second. **If both fail, then the combined parser returns `Nothing`**. We can use digit with `(<|>)` to, for instance, parse strings of binary digits:
+
+```hasekll
+binChar :: String -> Maybe Int
+binChar s = digit 0 s <|> digit 1 s
+```
+
+<br>
+#### MonadPlus
+
+`MonadPlus` is a class which is closely related to `Alternative`:
+
+```haskell
+class Monad m => MonadPlus m where
+  mzero :: m a
+  mplus :: m a -> m a -> m a
+```
+
+**This definition is exactly like that of `Alternative`, only with different method names and the `Applicative` constraint being changed into `Monad`**. 
+
+For types that have instances of both `Alternative` and `MonadPlus`, `mzero` and `mplus` should be equivalent to `empty` and `(<|>)` respectively.
+
+One might legitimately wonder why the seemingly redundant `MonadPlus` class exists. Part of the reason is historical: just like `Monad` existed in Haskell long before `Applicative` was introduced, `MonadPlus` is much older than Alternative. 
+
+<br>
+####
+
+`Alternative` and `MonadPlus` laws:
+
+```haskell
+-- empty is a neutral element
+empty <|> u  =  u
+u <|> empty  =  u
+-- (<|>) is associative
+u <|> (v <|> w)  =  (u <|> v) <|> w
+
+-- exampl:
+mzero `mplus` m  =  m
+m `mplus` mzero  =  m
+m `mplus` (n `mplus` o)  =  (m `mplus` n) `mplus` o
+```
+
+Plus the additional two laws, quoted by the `Control.Monad` documentation:
+
+```haskell
+mzero >>= f  =  mzero -- left zero
+m >> mzero   =  mzero -- right zero
+```
+
+<br>
+####Relationship with monoids
+
+```haskell
+class Monoid m where 
+  mempty  :: m
+  mappend :: m -> m -> m
+  
+instance Monoid [a] where
+  mempty  = []
+  mappend = (++)
+```
+
+Note the use of `[a]` instead of `[]` in the instance declaration. Monoids are **not necessarily "wrappers" of anything**, or parametrically polymorphic. 
+
+`Alternative` is a separate type class because it captures a specific sort of monoid with distinctive properties − for instance, a binary operation.
