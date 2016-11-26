@@ -1,6 +1,4 @@
 {
-    "plugins": [
-        "theme-latex"
-    ],
+    "plugins": [],
     "pluginsConfig": {}
 }
