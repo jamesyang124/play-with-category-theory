@@ -23,6 +23,7 @@ Forgetful functors tend to have **left adjoints**, which are **free construction
 
 $$\operatorname {Hom}_{{{\mathbf  {Mod}}_{R}}}(\operatorname {Free}_{R}(X),M)=\operatorname {Hom}_{{{\mathbf  {Set}}}}(X,\operatorname {Forget}(M))$$
 
+
 #### Free Object
 
 https://en.wikipedia.org/wiki/Free_object#Free_functor
