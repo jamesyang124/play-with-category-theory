@@ -1,7 +1,8 @@
 {
     "plugins": [
         "ace",
-        "latex-codecogs"
+        "latex-codecogs",
+        "theme-latex"
     ],
     "pluginsConfig": {}
 }
