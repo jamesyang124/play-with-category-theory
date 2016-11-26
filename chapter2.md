@@ -16,7 +16,7 @@ Given categories `C` and `D`, a functor `F: C -> D` describe:
 
 Then there has two axioms that functors must obey:
 
-1. Given identity morphism `id(A)` on object `A`, `F(id(A))` must be the identity morphism on `F(A)` : $$F(id_{A})=id_{{F(A)}}$$ So here has two identity morphisms - $$id_{A}$$ and $$id_{F(A)}$$, the result can be interpret in Haskell as:
+1. Given identity morphism `id(A)` on object `A`, `F(id(A))` must be the identity morphism on `F(A)` : $$F(id_{A})=id_{F(A)}$$ So here has two identity morphisms - $$id_{A}$$ and $$id_{F(A)}$$, the result can be interpret in Haskell as:
   
   ```haskell
   f (id a) = id (f a)
