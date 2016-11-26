@@ -2,6 +2,7 @@
 
 #### Function has type signature
 
+
 Values has its types, so did functions.
 
 ```haskell
