@@ -11,6 +11,6 @@
 * [Eighth Chapter](chapter8.md)
 * [Ninth Chapter](chapter9.md)
 * [Tenth Chapter](chapter10.md)
-* [References](references.md)
 * [Eleventh Chapter](chapter11.md)
+* [References](references.md)
 
