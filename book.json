@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "ace",
         "latex-codecogs",
         "theme-latex"
     ],
