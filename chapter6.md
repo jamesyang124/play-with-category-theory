@@ -21,7 +21,7 @@ A forgetful functor (also known as a **stripping functor**) **forgets** or drops
 
 Forgetful functors tend to have **left adjoints**, which are **free constructions**.
 
-$$Hom_{{Mod}_{R}}(Free_{R}(X),M)=Hom_{Set}(X,Forget(M))$$
+$$Hom_{Mod_R}(Free_R(X),M)=Hom_{Set}(X,Forget(M))$$
 
 
 #### Free Object
