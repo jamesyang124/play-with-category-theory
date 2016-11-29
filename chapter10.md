@@ -251,6 +251,9 @@ You might think that `$` is completely useless! However, there are two interesti
   
   Prelude> fmap reverse . (\x -> [x]) $ [1,2,3,4]
   [[4,3,2,1]]
+  
+  fmap reverse . (\x -> [x]) $ [1,2,3,4] == fmap reverse [[1,2,3,4]]
+  
   Prelude> fmap (reverse . (\x -> [x])) $ [1,2,3,4]
   [[1],[2],[3],[4]]
   ```
