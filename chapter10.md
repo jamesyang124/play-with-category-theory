@@ -122,6 +122,16 @@ You might think that `$` is completely useless! However, there are two interesti
 
 1. `$` has very low precedence, **unlike regular function application which has the highest precedence**. That means we can avoid confusing **nesting of parentheses** by breaking precedence with `$`
 
+  For a tiny sample, first consider the `inits` function, defined in the module `Data.List`. Quoting the documentation, it "returns all initial segments of the argument, shortest first", so that:
+
+  ```haskell
+  Prelude Data.List> inits [1,2,3]
+  [[],[1],[1,2],[1,2,3]]
+  
+  myInits :: [a] -> [[a]]
+  myInits = map reverse . scanl (flip (:)) []
+  ```
+
   We write a non-point-free version of `myInits` **without adding new parentheses**:
   
   ```haskell
