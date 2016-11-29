@@ -116,8 +116,6 @@ The `.` composition operator is another higher-order function. It has the signat
 It takes a function as its first argument, and **all it does is to apply the function to the second argument**, so that, for instance:
 
 ```haskell
-($) :: (a -> b) -> a -> b
-
 (head $ "abc") == (head "abc")
 ```
 You might think that `$` is completely useless! However, there are two interesting points about it.
