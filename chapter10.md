@@ -140,6 +140,97 @@ You might think that `$` is completely useless! However, there are two interesti
   myInits xs = map reverse . scanl (flip (:)) [] $ xs
   ```
 
+  Lets break these into little pieces:
+  
+  ```haskell
+  :t (:)
+  (:) :: a -> [a] -> [a]
+  
+  1 : []
+  [1]
+  
+  [2] : []
+  [[2]]
+  
+  [3, 4] : [[]]
+  [[], [3, 4]]
+  
+  -- so a -> [a] -> [a], a is some type: Num or List. 
+  -- if a is List type, then [a] can be [] which is a empty list in any type a
+  -- That's why [3, 4] : [] == [[3, 4]]
+  
+  [3, 4] : [5]
+  -- Constraint to Num [t] in right hand side => [[], [1,2]] or [], [t] allowed
+  
+  [] : [1,2,3]
+  -- [1,2,3] could not type infer to each Num element a as empty list []
+  -- Constraint error
+  
+  [] : []
+  [[]]
+  ```
+  
+  After explore `(:)`, we can check `flip`:
+  
+  ```haskell
+  :t flip
+  flip :: (a -> b -> c) -> b -> a -> c
+  -- it flips first two arguments in function f's input
+  
+  flip fmap [1,2,3] (*2)
+  (2,4,6,6)
+  -- for readability and precedence check, better to surround it with parenthesis
+  (flip map) [1,2,3] (*2)
+  ```
+  
+  Now we examine the `scanl`:
+  
+  ```haskell
+  :t scanl
+  scanl :: (b -> a -> b) -> b -> [a] -> [b]
+  -- it gets a init type b, and function f, and list a,
+  -- put init type b to list [b] first, then scan each a from left to right, 
+  -- prepend it by (:), finally append to list [b]
+  
+  1 (:) [5, 6]
+  -- prepended to [1, 5, 6]
+  
+  scanl (flip (:)) [] [1,2,3]
+  [[], [1], [2,1], [3,2,1]]
+  
+  -- because we could not directly use (:)
+  -- since its type signature is: a -> [a] -> [a]
+  -- so we flip to make it match scanl's type signature
+  
+  scanl (flip (:)) [] [1,2,3] == scanl (\x y -> y : x) [] [1, 2, 3]
+  
+  scanl (\init elem -> init + elem) 0 [1,2,3,4]
+  [0, 1, 3, 6, 10]
+  ```
+  
+  We can combine above computations with `(.)` composition. Here we must use `$` for lower precedence. The evaluation will consume inputs as soon as possible, which can not keep its type signature for ``. 
+  
+  ```haskell
+  :t (.)
+  (.) :: (b -> c) -> (a -> b) -> a -> c
+  
+  reverse . scanl (flip (:)) [] [1,2,3]
+  -- could not match expected type "a -> [a1]"
+  -- possible cause: "scanl" is applied to too many arguments
+  
+  :t scanl (flip (:)) []
+  scanl (flip (:)) [] :: [a] -> [[a]]
+  
+  reverse . scanl (flip (:)) [] $ [1,2,3] ==   (reverse . scanl (flip (:)) []) [1,2,3]
+  -- by above type signature, we need [a] for last input
+  -- we can use $ application operator as laziest evaluated input to reduce paremthesis wrapping
+  
+  map reverse . scanl (flip (:)) [] $ [1,2,3] == (map reverse . scanl (flip (:)) []) [1,2,3]
+  
+  :t map reverse . scanl (flip (:)) []
+  (map reverse . scanl (flip (:)) []) :: [a] -> [[a]]
+  ```
+
 2. `$` is just a function which happens to apply functions, and functions are just values, we can write **intriguing expressions** such as:
 
   ```haskell
