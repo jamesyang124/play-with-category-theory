@@ -109,6 +109,10 @@ The `.` composition operator is another higher-order function. It has the signat
 
 `$` is a curious higher-order operator. Its type is:
 
+```haskell
+($) :: (a -> b) -> a -> b
+```
+
 It takes a function as its first argument, and **all it does is to apply the function to the second argument**, so that, for instance:
 
 ```haskell
