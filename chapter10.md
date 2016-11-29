@@ -236,6 +236,18 @@ You might think that `$` is completely useless! However, there are two interesti
   
   map reverse [[],[1],[2,1]]
   [[],[1],[1,2]]
+  
+  fmap reverse . (\x -> [x]) $ [1,2,3,4]
+  [[4,3,2,1]]
+
+  Prelude> (fmap reverse . fmap (\x -> [x])) [1,2,3,4]
+  [[1],[2],[3],[4]]
+
+  Prelude> fmap (reverse . (\x -> [x])) [1,2,3,4]
+  [[1],[2],[3],[4]]
+
+  Prelude> (fmap reverse) . (fmap (\x -> [x])) $ [1,2,3,4]
+  [[1],[2],[3],[4]]
   ```
 
 2. `$` is just a function which happens to apply functions, and functions are just values, we can write **intriguing expressions** such as:
