@@ -257,6 +257,12 @@ You might think that `$` is completely useless! However, there are two interesti
   
   Prelude> fmap (reverse . (\x -> [x])) $ [1,2,3,4]
   [[1],[2],[3],[4]]
+  
+  :t fmap (reverse . (\x -> [x]))
+  fmap (reverse . (\x -> [x])) :: Functor f => f a -> f [a]
+
+  Prelude> :t fmap reverse . (\x -> [x])
+  fmap reverse . (\x -> [x]) :: [a] -> [[a]]
   ```
 
 2. `$` is just a function which happens to apply functions, and functions are just values, we can write **intriguing expressions** such as:
