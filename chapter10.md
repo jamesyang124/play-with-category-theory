@@ -208,7 +208,7 @@ You might think that `$` is completely useless! However, there are two interesti
   [0, 1, 3, 6, 10]
   ```
   
-  We can combine above computations with `(.)` composition. Here we must use `$` for lower precedence. The evaluation will consume inputs as soon as possible, which can not keep its type signature for ``. 
+  We can combine above computations with `(.)` composition. Here we must use `$` for lower precedence. The evaluation will consume inputs as soon as possible, which can not keep its type signature: 
   
   ```haskell
   :t (.)
@@ -229,6 +229,13 @@ You might think that `$` is completely useless! However, there are two interesti
   
   :t map reverse . scanl (flip (:)) []
   (map reverse . scanl (flip (:)) []) :: [a] -> [[a]]
+  
+  -- another example
+  (scanl (flip (:)) []) $ [1,2]
+  [[],[1],[2,1]]
+  
+  map reverse [[],[1],[2,1]]
+  [[],[1],[1,2]]
   ```
 
 2. `$` is just a function which happens to apply functions, and functions are just values, we can write **intriguing expressions** such as:
