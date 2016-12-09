@@ -63,6 +63,21 @@ In a data declaration, a type constructor is the thing on the **left hand side o
 > - A data constructor is a "function" that takes 0 or more values and gives you back a new value.
 > - A type constructor is a "function" that takes 0 or more types and gives you back a new type.
 
+```haskell
+-- nullary type constructor with two nullary data constructors
+ data Bool = False
+           | True
+
+ -- non-nullary type constructor with one non-nullary data constructor
+ data Point a = Point a a
+
+ -- non-nullary type constructor with...
+ data Maybe a = Nothing -- ...nullary data constructor
+              | Just a  -- ...unary data constructor
+```
+
+So in here, `Point a a` is actually a function takes two params, though name the same as type constructor `Point a`, they are different.
+
 As the home stretch here, we can consider the Maybe a type. It's definition is
 
 ```haskell
