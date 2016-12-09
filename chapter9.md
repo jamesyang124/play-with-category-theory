@@ -50,6 +50,8 @@ http://stackoverflow.com/questions/5911267/what-are-sums-and-products-data-struc
 
 #### Type vs Data constructor
 
+Note that Haskell requires `type names` and `constructor names` to begin with an **uppercase letter**).
+
 https://en.wikipedia.org/wiki/Nullary_constructor
 
 http://stackoverflow.com/questions/18204308/haskell-type-vs-data-constructor
