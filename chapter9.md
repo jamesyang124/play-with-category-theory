@@ -1,5 +1,35 @@
 # Classes and Types
 
+#### Algebraic data type
+
+https://en.wikipedia.org/wiki/Algebraic_data_type
+
+**sum types** also called as **variant types**, ex: `Either`, `Boolean`. They both holding vary type constructors(function) ex: `True`, `False`, `Left`, `Right`.
+
+> If we have sum types, then perhaps we also have product types, too. A product type is just a **tuple, or a constructor with more than one argument**:
+
+```haskell
+-- A product of an Integer and  String
+(4, "Hello") :: (Integer, String)
+
+-- A data type that is a product of a Char, an Integer, and Bool
+-- M is type constructor function
+data Multiple = M Char Integer Bool
+```
+
+A **sum type** is any type that has multiple possible representations, and we use | to separate each representation(type constructor). We can use these representations in our functions as if they were ordinary values.
+
+https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/sum-types
+
+>Notice that product types lack the ability to:
+
+> - create new primitive data types that are not numbers, bools, or strings
+> - represent a choice between two alternatives
+
+
+http://stackoverflow.com/questions/5911267/what-are-sums-and-products-data-structures
+
+<br>
 #### Classes and instances
 
 The point of **type classes** is to ensure that certain operations will be available for values of chosen types. 
