@@ -47,6 +47,50 @@ Left :: forall b a. a -> Either a b
 
 http://stackoverflow.com/questions/5911267/what-are-sums-and-products-data-structures
 
+
+#### Type vs Data constructor
+
+https://en.wikipedia.org/wiki/Nullary_constructor
+
+http://stackoverflow.com/questions/18204308/haskell-type-vs-data-constructor
+
+In a data declaration, a type constructor is the thing on the **left hand side of the equals sign**. The data constructor(s) are the things on the **right hand side of the equals sign**. You use type constructors where a type is expected, and you use data constructors where a value is expected.
+
+> Step back here a moment and take note of the similarities.
+>
+> - A data constructor is a "function" that takes 0 or more values and gives you back a new value.
+> - A type constructor is a "function" that takes 0 or more types and gives you back a new type.
+
+As the home stretch here, we can consider the Maybe a type. It's definition is
+
+```haskell
+data Maybe a = Nothing
+             | Just a
+```
+
+Here, `Maybe` is a type constructor that returns a concrete type. `Just` is a data constructor that returns a value. `Nothing` is a data constructor that contains a value. If we look at the type of `Just`, we see that
+
+```haskell
+Just :: a -> Maybe a
+```
+
+In other words, `Just` takes a value of type a and returns a value of type Maybe a. If we look at the kind of `Maybe`, we see that
+
+```haskell
+Maybe :: * -> *
+```
+In other words, Maybe takes a concrete type and returns a concrete type.
+
+Once again! The difference between a concrete type and a type constructor function. You can not create a list of `Maybes`. If you try to execute
+
+```haskell
+[] :: [Maybe]
+```
+
+you'll get an error. You can however create a list of `Maybe Int`, or `Maybe a`. That's because Maybe is a type constructor function, but a **list needs to contain values of a concrete type**. `Maybe Int` and `Maybe a` are concrete types (or if you want, calls to type constructor functions that return concrete types.)
+
+
+
 <br>
 #### Classes and instances
 
