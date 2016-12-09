@@ -76,7 +76,7 @@ In a data declaration, a type constructor is the thing on the **left hand side o
               | Just a  -- ...unary data constructor
 ```
 
-So in here, `Point a a` is actually a function takes two params, though name the same as type constructor `Point a`, they are different.
+So in here, `Point a a` is actually a function takes two parameters, though name the same as type constructor `Point a`, they are different.
 
 As the home stretch here, we can consider the Maybe a type. It's definition is
 
