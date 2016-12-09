@@ -96,6 +96,8 @@ you'll get an error. You can however create a list of `Maybe Int`, or `Maybe a`.
 <br>
 #### Classes and instances
 
+A **typeclass is a sort of interface that defines some behavior**. If a type is a part of a typeclass, **that means that it supports and implements the behavior the typeclass describes**. 
+
 The point of **type classes** is to ensure that certain operations will be available for values of chosen types. 
 
 For example, if we know a type belongs to (or, to use the jargon, instantiates) the class `Fractional`, then we are guaranteed to, among other things, be able to perform real division with its values.
