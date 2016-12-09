@@ -26,6 +26,24 @@ https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/s
 > - create new primitive data types that are not numbers, bools, or strings
 > - represent a choice between two alternatives
 
+https://wiki.haskell.org/Constructor#Type_constructor
+
+```haskell
+data Bool = True | False
+data Tree a = Tip | Node a (Tree a) (Tree a)
+```
+
+`True`, `False` are nullary data constructor, `Node` take an argument as, data constructor.
+
+Data constructors are first class values in Haskell and actually have a type. For instance, the type of the `Left` constructor of the `Either` data type is:
+
+```
+Left :: forall b a. a -> Either a b
+```
+
+**Data constructors as first class values**. As first class values, they may be passed to functions, held in a list, be data elements of other algebraic data types and so forth.
+
+**Data constructors are not types.** As discussed above, they denote values. It is illegal to write `Node a (Node a) (Node a)` there, because the type is `Tree`, not `Node`.
 
 http://stackoverflow.com/questions/5911267/what-are-sums-and-products-data-structures
 
