@@ -1,4 +1,4 @@
-r# Classes and Types
+# Classes and Types
 
 #### Algebraic data type
 
