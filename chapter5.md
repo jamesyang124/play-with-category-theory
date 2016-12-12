@@ -40,13 +40,15 @@ return :: a -> m a
 (>>=)  :: m a -> (a -> m b) -> m b
 ```
 
-Aside from return and bind, there are two additional methods, `(>>)` spelled "then" and `fail`.
+Aside from return and bind, there are two additional methods, `(>>)` spelled `then` and `fail`.
 
 ```haskell
 m >> n = m >>= \_ -> n
 ```
 
 The function `fail` handles pattern match failures in `do` notation. You are advised not to call `fail` directly in your code.
+
+_bind_ in Scala is defined as `flatMap`. A `List` monad's `flatMap` which **may produce a collection of elements for every element in the original collection**.
 
 `(>>)` sequences two monadic actions when the second action does not involve the result of the first, which is a common scenario for monads such as `IO`.
 
