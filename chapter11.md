@@ -84,6 +84,18 @@ implicit val listFunctor: Functor[List] = new Functor[List] {
 }
 ```
 
+#### Functor laws
+
+It states that `id` function should reflect the same type by `fmap` or call it self. And the composed function should be able to `fmap` first, then composed in latter no matter execution order.
+
+```haskell
+fmap id = id
+
+fmap (g . f) = fmap g . fmap f
+```
+
+#### Lift
+
 Besides calling `map`, you can call `lift` to lift a function to its functor type:
 
 ```scala
@@ -104,3 +116,24 @@ In Haskell, this define as:
 ```haskell
 lifting :: Functor f => (a -> b) -> f (a -> b)
 ```
+
+`fproduct` use to create key-value tuples:
+
+```scala
+val source = List("a", "aa", "b", "ccccc")
+// source: List[String] = List(a, aa, b, ccccc)
+
+Functor[List].fproduct(source)(len).toMap
+// res9: scala.collection.immutable.Map[String,Int] = Map(a -> 1, aa -> 2, b -> 1, ccccc -> 5)
+```
+
+Or the most important one - `compose`, given two functors `F[_]` and `G[_]` then compose to `F[G[_]]` with `Nested` data type:
+
+```scala
+import cats.data.Nested
+
+val listOpt = [Nested[List, Option, Int]]List(Some(5), None, Some(8))
+
+Functor[Nested[List, Option, ?]].map(listOpt)(_ + 1)
+```
+
