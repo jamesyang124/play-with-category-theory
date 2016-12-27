@@ -165,3 +165,5 @@ val listA3 = Functor[List].widen[B, A](listB)
 **Subtyping relationships are _lifted_ by functors, such that if `F` is a lawful functor and `A <: B then F[A] <: F[B]`**. 
 
 This is because functor laws and `identity` guarantee that `identity : a => b` so `a map identity == b` which make the subtyping is natural relationship in here.
+
+> Note that `identity` in scala may not be the same as `Id` in Haskell.
