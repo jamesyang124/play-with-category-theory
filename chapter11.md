@@ -64,3 +64,22 @@ class Monoid a where
 
 ## Functor
 
+By previous definition, a functor should define `map` method in scala, `fmap` in Haskell.
+
+```scala
+def map[A, B](fa: F[A])(f: A => B): F[B]
+```
+
+Then you can implement it by _ad-hoc_ polymorphism as:
+
+```scala
+import cats._
+
+implicit val optionFunctor: Functor[Option] = new Functor[Option] {
+  def map[A,B](fa: Option[A])(f: A => B) = fa map f
+}
+
+implicit val listFunctor: Functor[List] = new Functor[List] {
+  def map[A,B](fa: List[A])(f: A => B) = fa map f
+}
+```
