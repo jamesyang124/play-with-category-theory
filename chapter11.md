@@ -49,7 +49,7 @@ mempty combine x = x
 x combine mempty = x               
 ```
 
-Haskell defines an extra `mconcat` method, which iterate a `list` or `traversable` types with `mappend empty`. It call fold right to traverse values.
+Haskell defines an extra `mconcat` method, which iterate a `list`(it is general term as _iterable_ in Haskell) with `mappend empty`. It call fold right to traverse values.
 
 https://wiki.haskell.org/Fold
 
