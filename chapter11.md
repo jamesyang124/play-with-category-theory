@@ -86,7 +86,7 @@ implicit val listFunctor: Functor[List] = new Functor[List] {
 
 #### Functor laws
 
-It states that `id` function should reflect the same type by `fmap` or call it self. And the composed function should be able to `fmap` first, then composed in latter.
+It states that `id` function should reflect the same type by `fmap` or call it self. And the composed function should be able to `fmap` first, then composed them in latter.
 
 ```haskell
 fmap id = id
@@ -118,6 +118,8 @@ In Haskell, this define as:
 lifting :: Functor f => (a -> b) -> f (a -> b)
 ```
 
+#### Fproduct
+
 `fproduct` use to create key-value tuples:
 
 ```scala
@@ -127,6 +129,8 @@ val source = List("a", "aa", "b", "ccccc")
 Functor[List].fproduct(source)(len).toMap
 // res9: scala.collection.immutable.Map[String,Int] = Map(a -> 1, aa -> 2, b -> 1, ccccc -> 5)
 ```
+
+#### Composed functor 
 
 Or the most important one - `compose`, given two functors `F[_]` and `G[_]` then compose to `F[G[_]]` with `Nested` data type:
 
@@ -138,3 +142,26 @@ val listOpt = [Nested[List, Option, Int]]List(Some(5), None, Some(8))
 Functor[Nested[List, Option, ?]].map(listOpt)(_ + 1)
 ```
 
+**Functor allowed composition, while monad is not.**
+
+#### Subtyping 
+
+In scala, we can borrow OO's subtype polymorphism, which is simulated by `absurd` in Haskell.
+
+```scala
+class A
+class B extends A
+
+val b = new B
+val a: A = b  // upcasting
+
+val listB = List(new B)
+
+val liftA1 = listB.map(b => b: A)
+val listA2 = listB.map(b => identity[A])
+val listA3 = Functor[List].widen[B, A](listB)
+```
+
+**Subtyping relationships are _lifted_ by functors, such that if `F` is a lawful functor and `A <: B then F[A] <: F[B]`**. 
+
+This is because functor laws and `identity` guarantee that `identity : a => b` so `a map identity == b` which make the subtyping is natural relationship in here.
