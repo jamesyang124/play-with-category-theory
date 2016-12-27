@@ -43,7 +43,9 @@ mempty combine x = x               // -- left identity
 x combine mempty = x               // -- right identity
 ```
 
-Haskell defines an extra `mconcat` method, which iterate a `list` or `traversable` context with `mappend empty`. Use fold right to traverse values.
+Haskell defines an extra `mconcat` method, which iterate a `list` or `traversable` types with `mappend empty`. It call fold right to traverse values.
+
+https://wiki.haskell.org/Fold
 
 ```haskell
 class Monoid a where
