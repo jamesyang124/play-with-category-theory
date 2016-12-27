@@ -83,3 +83,24 @@ implicit val listFunctor: Functor[List] = new Functor[List] {
   def map[A,B](fa: List[A])(f: A => B) = fa map f
 }
 ```
+
+Besides calling `map`, you can call `lift` to lift a function to its functor type:
+
+```scala
+val len: String => Int = _.length
+
+// Call lift
+// A => B to F[A] => F[B]
+
+val lenOption: Option[String] => Option[Int] = Functor[Option].lift(len)
+// lenOption: Option[String] => Option[Int] = cats.Functor$$Lambda$3838/109914554@70211317
+
+lenOption(Some("abcd"))
+// res8: Option[Int] = Some(4)
+```
+
+In Haskell, this define as:
+
+```haskell
+lifting :: Functor f => (a -> b) -> f (a -> b)
+```
