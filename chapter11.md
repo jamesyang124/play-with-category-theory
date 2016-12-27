@@ -86,10 +86,11 @@ implicit val listFunctor: Functor[List] = new Functor[List] {
 
 #### Functor laws
 
-It states that `id` function should reflect the same type by `fmap` or call it self. And the composed function should be able to `fmap` first, then composed in latter no matter execution order.
+It states that `id` function should reflect the same type by `fmap` or call it self. And the composed function should be able to `fmap` first, then composed in latter.
 
 ```haskell
 fmap id = id
+-- abbrev. as fmap id x = id x
 
 fmap (g . f) = fmap g . fmap f
 ```
