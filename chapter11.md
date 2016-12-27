@@ -8,11 +8,12 @@ For all $${\displaystyle a,b,c\in S}$$, the equation $${\displaystyle (a\cdot b)
 
 #### Semigroup law
 
-1. associativity as above described.
+```scala
+// use infix |+| as combine method.
 
-    ```scala
-    (x |+| y) |+| z = x |+| (y |+| z)
-    ```
+// 1. associativity
+(x |+| y) |+| z = x |+| (y |+| z) 
+```
 
 ## Monoid
 
@@ -38,9 +39,14 @@ Monoid[String].combineAll(List())
 #### Monoid law
 
 ```scala
-(x combine y) combine z = x combine (y combine z) // -- associativity
-mempty combine x = x               // -- left identity
-x combine mempty = x               // -- right identity
+// 1. associativity
+(x combine y) combine z = x combine (y combine z)
+
+// 2. left identity
+mempty combine x = x               
+
+// 3. right identity
+x combine mempty = x               
 ```
 
 Haskell defines an extra `mconcat` method, which iterate a `list` or `traversable` types with `mappend empty`. It call fold right to traverse values.
@@ -55,3 +61,6 @@ class Monoid a where
     mconcat :: [a] -> a
     mconcat = foldr mappend mempty
 ```
+
+## Functor
+
