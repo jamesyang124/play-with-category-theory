@@ -1,6 +1,7 @@
 # Cats Data Types
 
 ## Semigroup
+----
 
 A semigroup is a set $$S$$ together with a binary operation "$${\displaystyle \cdot}$$" (that is, a function $${\displaystyle \cdot :S\times S\rightarrow S}$$) that satisfies the associative property:
 
@@ -14,8 +15,11 @@ For all $${\displaystyle a,b,c\in S}$$, the equation $${\displaystyle (a\cdot b)
 // 1. associativity
 (x |+| y) |+| z = x |+| (y |+| z) 
 ```
-
+  
+       
 ## Monoid
+----
+
 
 Monoid add `empty` method to define the empty result. And it applied associativity:
 
@@ -63,6 +67,7 @@ class Monoid a where
 ```
 
 ## Functor
+----
 
 By previous definition, a functor should define `map` method in scala, `fmap` in Haskell.
 
@@ -167,3 +172,12 @@ val listA3 = Functor[List].widen[B, A](listB)
 This is because functor laws and `identity` guarantee that `identity : a => b` so `a map identity == b` which make the subtyping is natural relationship in here.
 
 > Note that `identity` in scala may not be the same as `Id` in Haskell.
+
+Apply
+----
+
+Cats split the same methods which is defined by `applicative functor` in Haskell, so `Apply` is actually add an transformer function as follows:
+
+```scala
+def ap(fa: A)(f: A => B)
+```
