@@ -172,13 +172,11 @@ mns >>>>== f = mns >>-{-m-} \ ns -> let nmnt = ns >>= (return . f) in ???
 
 > We have an `n (m (n t))`, so we need to get rid of the outer `n`
 
-This is hard to find a function like:
+This is hard to find a function like below to make `(>>>>==)` is defined.
 
 ```haskell
 swap :: n (m t) -> m (n t)
 ```
-
-To make `(>>>>==)` defined.
 
 The weaker `double apply` composition is easy to define:
 
@@ -243,6 +241,34 @@ Apply[Nested[List, Option, ?]].ap(f)(listOpt)
 // res6: cats.data.Nested[[+A]List[A],Option,Int] = Nested(List(Some(2), None, Some(4)))
 ```
 
+`Apply` also support higher arities for `ap`, `map`, and `tuple`:
 
+```scala
+def add2Arity(a: Int, b: Int) = a + b
+
+Apply[Option].ap2(Some(add2Arity))(Some(1), Some(2))
+// res12: Option[Int] = Some(3)
+
+Apply[Option].map3(Some(1), Some(2), Some(3))(addArity3)
+// res17: Option[Int] = Some(6)
+
+Apply[Option].tuple3(Some(1), Some(2), Some(3))
+// res19: Option[(Int, Int, Int)] = Some((1,2,3))
+```
+
+Note that if any of the arguments of this example is `None`, then the output is carried to `None`.
+
+**The effects of the context we are operating on are carried through the entire computation**:
+
+```scala
+Apply[Option].ap2(Some(addArity2))(Some(1), None)
+// res14: Option[Int] = None
+
+Apply[Option].ap4(None)(Some(1), Some(2), Some(3), Some(4))
+// res15: Option[Nothing] = None
+```
+
+Applicative
+----
 
 
