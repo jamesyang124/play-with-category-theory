@@ -102,7 +102,7 @@ fmap (g . f) = fmap g . fmap f
 
 #### Lift
 
-Besides calling `map`, you can call `lift` to lift a function to its functor type:
+Besides calling `map`, you can call `lift` to **lift a function to its functor type**:
 
 ```scala
 val len: String => Int = _.length
@@ -271,4 +271,9 @@ Apply[Option].ap4(None)(Some(1), Some(2), Some(3), Some(4))
 ## Applicative
 ----
 
+`Applicative` extends `Apply` with `pure` function, which **lift a value into that context**, contrast with `lift` function which **lift a _function_ instead**:
+
+```scala
+def pure[A](x: A): F[A]
+```
 
