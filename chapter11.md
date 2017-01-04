@@ -173,6 +173,7 @@ This is because functor laws and `identity` guarantee that `identity : a => b` s
 
 > Note that `identity` in scala may not be the same as `Id` in Haskell.
 
+
 Apply
 ----
 
