@@ -149,6 +149,39 @@ Functor[Nested[List, Option, ?]].map(listOpt)(_ + 1)
 
 **Functor allowed composition, while monad is not.**
 
+To get this conclusion in depth:
+
+http://stackoverflow.com/questions/7040844/applicatives-compose-monads-dont
+
+```haskell
+(<*>) :: Applicative a => a (s -> t) -> a s -> a t
+(>>=) :: Monad m =>       m s -> (s -> m t) -> m t
+```
+
+That `(s -> m t)` shows that a **value** in `s` can **determine the behavior of a computation** in `m t`. Monads allow interference between the _value_ and _computation layers(1-arity type)_. 
+
+The `(<*>)` operator allows no such interference: **the _function_ and _argument_ computations don't depend on values**.
+
+Consider example and a unfinished derivation:
+
+```haskell
+(>>>>==) :: (Monad m, Monad n) => m (n s) -> (s -> m (n t)) -> m (n t)
+
+mns >>>>== f = mns >>-{-m-} \ ns -> let nmnt = ns >>= (return . f) in ???
+```
+
+> We have an `n (m (n t))`, so we need to get rid of the outer `n`
+
+This is hard.
+
+The weaker `double apply` composition is easy to define:
+
+```haskell
+(<<**>>) :: (Applicative a, Applicative b) => a (b (s -> t)) -> a (b s) -> a (b t)
+
+abf <<**>> abs = pure (<*>) <*> abf <*> abs
+```
+
 #### Subtyping 
 
 In scala, we can borrow OO's subtype polymorphism, which is simulated by `absurd` in Haskell.
