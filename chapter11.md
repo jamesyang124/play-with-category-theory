@@ -196,9 +196,12 @@ val plusOne = (x:Int) => x + 1
 // plusOne: Int => Int
 
 val f = Nested[List, Option, Int => Int](List(Some(plusOne)))
-// f: cats.data.Nested[List,Option,Int => Int] = Nested(List(Some($$Lambda$3657/643225487@6d66ec2f)))
+// f: cats.data.Nested[List,Option,Int => Int]
 
 Apply[Nested[List, Option, ?]].ap(f)(listOpt)
 // res6: cats.data.Nested[[+A]List[A],Option,Int] = Nested(List(Some(2), None, Some(4)))
 ```
+
+
+
 
