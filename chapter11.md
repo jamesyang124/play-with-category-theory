@@ -176,8 +176,28 @@ This is because functor laws and `identity` guarantee that `identity : a => b` s
 Apply
 ----
 
-Cats split the same methods which is defined by `applicative functor` in Haskell, so `Apply` is actually add an transformer function as follows:
+Cats split the same methods which is defined by `applicative functor` in Haskell, so `Apply` is actually add an transformer function `ap` as follows:
 
 ```scala
 def ap(fa: A)(f: A => B)
 ```
+
+Like functors, `Apply` can composed:
+
+```scala
+import cats.data.Nested
+// import cats.data.Nested
+
+val listOpt = Nested[List, Option, Int](List(Some(1), None, Some(3)))
+// listOpt: cats.data.Nested[List,Option,Int] = Nested(List(Some(1), None, Some(3)))
+
+val plusOne = (x:Int) => x + 1
+// plusOne: Int => Int = $$Lambda$3657/643225487@6d66ec2f
+
+val f = Nested[List, Option, Int => Int](List(Some(plusOne)))
+// f: cats.data.Nested[List,Option,Int => Int] = Nested(List(Some($$Lambda$3657/643225487@6d66ec2f)))
+
+Apply[Nested[List, Option, ?]].ap(f)(listOpt)
+// res6: cats.data.Nested[[+A]List[A],Option,Int] = Nested(List(Some(2), None, Some(4)))
+```
+
