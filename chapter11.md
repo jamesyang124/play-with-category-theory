@@ -213,7 +213,7 @@ This is because functor laws and `identity` guarantee that `identity : a => b` s
 > Note that `identity` in scala may not be the same as `Id` in Haskell.
 
 
-Apply
+## Apply
 ----
 
 Cats split the same methods which is defined by `applicative functor` in Haskell, so `Apply` is actually add an transformer function `ap` as follows:
@@ -268,7 +268,7 @@ Apply[Option].ap4(None)(Some(1), Some(2), Some(3), Some(4))
 // res15: Option[Nothing] = None
 ```
 
-Applicative
+## Applicative
 ----
 
 
