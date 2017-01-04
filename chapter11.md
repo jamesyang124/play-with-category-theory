@@ -192,7 +192,7 @@ val listOpt = Nested[List, Option, Int](List(Some(1), None, Some(3)))
 // listOpt: cats.data.Nested[List,Option,Int] = Nested(List(Some(1), None, Some(3)))
 
 val plusOne = (x:Int) => x + 1
-// plusOne: Int => Int = $$Lambda$3657/643225487@6d66ec2f
+// plusOne: Int => Int
 
 val f = Nested[List, Option, Int => Int](List(Some(plusOne)))
 // f: cats.data.Nested[List,Option,Int => Int] = Nested(List(Some($$Lambda$3657/643225487@6d66ec2f)))
