@@ -172,7 +172,13 @@ mns >>>>== f = mns >>-{-m-} \ ns -> let nmnt = ns >>= (return . f) in ???
 
 > We have an `n (m (n t))`, so we need to get rid of the outer `n`
 
-This is hard.
+This is hard to find a function like:
+
+```haskell
+swap :: n (m t) -> m (n t)
+```
+
+To make `(>>>>==)` defined.
 
 The weaker `double apply` composition is easy to define:
 
@@ -181,6 +187,8 @@ The weaker `double apply` composition is easy to define:
 
 abf <<**>> abs = pure (<*>) <*> abf <*> abs
 ```
+
+because function `(s -> t)` does not interfere to the `Applicative t` but value `t` instead.
 
 #### Subtyping 
 
